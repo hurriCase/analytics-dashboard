@@ -7,8 +7,6 @@
         :root{--bg:#0f172a;--card:#1e293b;--card2:#263148;--border:#334155;--text:#e2e8f0;--muted:#94a3b8;--accent:#6366f1;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--cyan:#22d3ee;--orange:#fb923c;}
         *{box-sizing:border-box;margin:0;padding:0;}
         body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;padding:24px;min-width:900px;}
-
-        /* ── Upload ── */
         #upload-zone{border:2px dashed var(--border);border-radius:14px;padding:48px 24px;text-align:center;background:var(--card);transition:border-color .2s;}
         #upload-zone.over{border-color:var(--accent);}
         #upload-zone h2{font-size:18px;margin-bottom:8px;}
@@ -16,78 +14,109 @@
         #file-input{display:none;}
         .upload-btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;}
         .file-chip{display:inline-block;background:var(--card2);border:1px solid var(--border);border-radius:20px;padding:3px 10px;margin:3px;font-size:11px;}
-
-        /* ── Progress ── */
         #progress{display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin-top:16px;}
         .prog-title{font-size:14px;font-weight:600;margin-bottom:4px;}
         .prog-sub{font-size:12px;color:var(--muted);margin-bottom:14px;}
         .prog-track{background:var(--bg);border-radius:6px;height:8px;overflow:hidden;margin-bottom:6px;}
         .prog-bar{height:8px;border-radius:6px;background:var(--accent);transition:width .1s linear;width:0%;}
         .prog-pct{font-size:11px;color:var(--muted);}
-
-        /* ── Report ── */
         #report{display:none;}
         .report-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
         .report-hdr h1{font-size:22px;font-weight:700;}
         .report-hdr .sub{color:var(--muted);font-size:12px;margin-top:3px;}
         .reload-btn{background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:6px 14px;font-size:12px;cursor:pointer;white-space:nowrap;}
         .reload-btn:hover{border-color:var(--accent);color:var(--accent);}
-
         /* ── Tabs ── */
-        .tab-bar{display:flex;gap:3px;border-bottom:1px solid var(--border);margin-bottom:20px;}
+        .tab-bar{display:flex;gap:3px;border-bottom:1px solid var(--border);margin-bottom:20px;flex-wrap:wrap;}
         .tab{padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;border-radius:8px 8px 0 0;color:var(--muted);border:1px solid transparent;border-bottom:none;margin-bottom:-1px;background:transparent;}
         .tab.active{background:var(--card);color:var(--text);border-color:var(--border);border-bottom-color:var(--card);}
         .tab-panel{display:none;}
-        .tab-panel.active{display:block;}
-
-        /* ── Day chips ── */
-        .day-bar{display:flex;column-gap:8px;row-gap:8px;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;padding:2px 0;max-width:calc(100vw - 48px);}
-        .day-bar span{font-size:12px;color:var(--muted);padding-top:4px;}
-        .day-chip{border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;cursor:pointer;background:var(--card);color:var(--muted);flex-shrink:0;}
-        .day-chip.on{background:var(--accent);border-color:var(--accent);color:#fff;}
-        /* ── Version chips ── */
-        .ver-bar{display:flex;column-gap:8px;row-gap:8px;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;padding:2px 0;max-width:calc(100vw - 48px);}
-        .ver-bar span{font-size:12px;color:var(--muted);padding-top:4px;}
-        .ver-chip{border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;cursor:pointer;background:var(--card);color:var(--muted);flex-shrink:0;}
-        .ver-chip.on{background:#0d9488;border-color:#0d9488;color:#fff;}
-        .ver-bar .sel-all{font-size:11px;color:var(--muted);cursor:pointer;text-decoration:underline;margin-left:4px;padding-top:6px;}
-        /* -- Campaign chips -- */
-        .cam-bar{display:block;margin-bottom:12px;padding:4px 0;line-height:2.2;}
-        .cam-bar>span{font-size:12px;color:var(--muted);display:inline-block;margin-right:4px;vertical-align:middle;}
-        .cam-chip{display:inline-block;border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;cursor:pointer;background:var(--card);color:var(--muted);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:2px 3px;vertical-align:middle;}
-        .cam-chip.on{background:#b45309;border-color:#b45309;color:#fff;}
-        .cam-bar .sel-all{font-size:11px;color:var(--muted);cursor:pointer;text-decoration:underline;margin-left:4px;display:inline-block;vertical-align:middle;}
-        .cam-more-wrap{display:inline-block;position:relative;vertical-align:middle;margin:2px 3px;}
-        .cam-more-btn{border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;cursor:pointer;background:var(--card);color:#fb923c;}
-        .cam-more-btn.partial{background:#b45309;border-color:#b45309;color:#fff;}
-        .cam-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px;z-index:200;min-width:240px;max-height:280px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.5);}
-        .cam-dropdown.open{display:block;}
-        .cam-dd-item{display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:6px;cursor:pointer;font-size:12px;color:var(--muted);white-space:nowrap;}
-        .cam-dd-item:hover{background:var(--card2);}
-        .cam-dd-item.on{color:var(--text);}
-        .cam-dd-check{width:14px;height:14px;border:1px solid var(--border);border-radius:3px;display:inline-block;flex-shrink:0;}
-        .cam-dd-item.on .cam-dd-check{background:#b45309;border-color:#b45309;}
-        .ctr-bar{display:block;margin-bottom:14px;padding:4px 0;line-height:2.2;}
-        .ctr-bar>span{font-size:12px;color:var(--muted);display:inline-block;margin-right:4px;vertical-align:middle;}
-        .ctr-chip{display:inline-block;border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;cursor:pointer;background:var(--card);color:var(--muted);margin:2px 3px;vertical-align:middle;}
-        .ctr-chip.on{background:#0369a1;border-color:#0369a1;color:#fff;}
-        .ctr-more-wrap{display:inline-block;position:relative;vertical-align:middle;margin:2px 3px;}
-        .ctr-more-btn{border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;cursor:pointer;background:var(--card);color:#7dd3fc;}
-        .ctr-more-btn.partial{background:#0369a1;border-color:#0369a1;color:#fff;}
-        .ctr-dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px;z-index:200;min-width:220px;max-height:280px;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,.5);}
-        .ctr-dropdown.open{display:block;}
-        .ctr-dd-item{display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:6px;cursor:pointer;font-size:12px;color:var(--muted);white-space:nowrap;}
-        .ctr-dd-item:hover{background:var(--card2);}
-        .ctr-dd-item.on{color:var(--text);}
-        .ctr-dd-check{width:14px;height:14px;border:1px solid var(--border);border-radius:3px;display:inline-block;flex-shrink:0;}
-        .ctr-dd-item.on .ctr-dd-check{background:#0369a1;border-color:#0369a1;}
-        .ctr-bar .sel-all{font-size:11px;color:var(--muted);cursor:pointer;text-decoration:underline;margin-left:4px;display:inline-block;vertical-align:middle;}
+        .tab-panel.active{display:block;padding-top:4px;}
+        /* ── Filter bar ── */
+        #fbar{display:flex;flex-wrap:wrap;gap:12px 20px;padding:12px 16px 14px;background:var(--card);border-bottom:1px solid var(--border);align-items:flex-start;margin-bottom:0;}
+        .fgrp{display:flex;flex-direction:column;align-items:flex-start;gap:6px;position:relative;}
+        .fwrap{position:relative;}
+        .fbtn{border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:12px;cursor:pointer;background:var(--card);color:var(--muted);transition:all .15s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+        .fbtn:hover{border-color:var(--accent);color:var(--text);box-shadow:0 2px 6px rgba(99,102,241,.25);}
+        .fbtn-day.active{background:linear-gradient(135deg,#6366f1,#4f46e5);border-color:#6366f1;color:#fff;box-shadow:0 2px 8px rgba(99,102,241,.4);}
+        .fbtn-ver.active{background:linear-gradient(135deg,#0d9488,#0f766e);border-color:#0d9488;color:#fff;box-shadow:0 2px 8px rgba(13,148,136,.4);}
+        .fbtn-cam.active{background:linear-gradient(135deg,#b45309,#92400e);border-color:#b45309;color:#fff;box-shadow:0 2px 8px rgba(180,83,9,.4);}
+        .fbtn-ctr.active{background:linear-gradient(135deg,#0369a1,#075985);border-color:#0369a1;color:#fff;box-shadow:0 2px 8px rgba(3,105,161,.4);}
+        .fdrop{display:none;position:absolute;top:calc(100% + 5px);left:0;background:var(--card);border:1px solid var(--border);border-radius:10px;z-index:300;min-width:230px;max-height:300px;overflow-y:auto;box-shadow:0 8px 28px rgba(0,0,0,.45);}
+        .fdrop.open{display:block;}
+        .fdrop-head{display:flex;gap:6px;padding:8px 12px 6px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--card);}
+        .fdrop-head span{font-size:11px;cursor:pointer;padding:2px 10px;border-radius:10px;border:1px solid var(--border);color:var(--muted);transition:all .12s;}
+        .fdrop-head span:hover{color:var(--text);border-color:var(--accent);}
+        .fdrop-item{display:flex;align-items:center;gap:8px;padding:6px 12px;cursor:pointer;font-size:12px;color:var(--text);transition:background .1s;white-space:nowrap;}
+        .fdrop-item:hover{background:#ffffff0a;}
+        .fcheck{width:14px;height:14px;border:1.5px solid var(--muted);border-radius:3px;flex-shrink:0;transition:all .1s;display:inline-flex;align-items:center;justify-content:center;}
+        .fdrop-item.on .fcheck{background:var(--accent);border-color:var(--accent);}
+        .fdrop-item.on .fcheck::after{content:'✓';font-size:9px;color:#fff;line-height:1;}
+        .fsel{display:flex;flex-wrap:wrap;gap:4px;align-items:center;max-width:400px;}
+        .fchip{display:inline-flex;align-items:center;gap:4px;border-radius:20px;padding:4px 10px 4px 12px;font-size:11px;border:1px solid;white-space:nowrap;cursor:default;font-weight:500;}
+        .fchip-day{background:#6366f115;border-color:#6366f144;color:#a5b4fc;}
+        .fchip-ver{background:#0d948815;border-color:#0d948844;color:#5eead4;}
+        .fchip-cam{background:#b4530915;border-color:#b4530944;color:#fb923c;}
+        .fchip-ctr{background:#0369a115;border-color:#0369a144;color:#7dd3fc;}
+        .fchip-x{cursor:pointer;opacity:.6;font-size:14px;line-height:1;padding:0 1px;}
+        .fchip-x:hover{opacity:1;}
         .all-note{font-size:11px;color:var(--yellow);background:#f59e0b11;border:1px solid #f59e0b33;border-radius:6px;padding:4px 10px;margin-bottom:14px;}
+        /* ── Players Tab ── */
+        .tier-champ{display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;white-space:nowrap;}
+        .tier-core{display:inline-block;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;white-space:nowrap;}
+        .tier-active{display:inline-block;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;white-space:nowrap;}
+        .tier-obs{display:inline-block;background:#1e293b;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;white-space:nowrap;}
+        #pl-table th[onclick]:hover{color:var(--text);background:#ffffff08;}
+        #pl-table th.sort-asc::after{content:' ▲';}
+        #pl-table th.sort-desc::after{content:' ▼';}
+        /* ── User Profile Modal ── */
 
+        .uid-link{font-family:monospace;font-size:10px;color:var(--accent);cursor:pointer;border-bottom:1px dashed var(--accent);transition:color .1s;}
+        .uid-link:hover{color:#fff;}
+        #upm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;backdrop-filter:blur(3px);}
+        #upm-overlay.open{display:flex;align-items:flex-start;justify-content:flex-end;}
+        #upm-panel{background:#0f172a;border-left:1px solid var(--border);width:440px;max-width:96vw;height:100vh;overflow-y:auto;box-shadow:-12px 0 40px rgba(0,0,0,.6);animation:upmSlide .2s ease;}
+        @keyframes upmSlide{from{transform:translateX(100%)}to{transform:translateX(0)}}
+        #upm-panel .upm-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);background:#1e293b;position:sticky;top:0;z-index:10;}
+        #upm-panel .upm-title{font-size:14px;font-weight:700;color:var(--text);}
+        #upm-panel .upm-close{cursor:pointer;font-size:22px;color:var(--muted);line-height:1;padding:2px 8px;border-radius:6px;transition:background .1s;}
+        #upm-panel .upm-close:hover{background:var(--card2);color:var(--text);}
+        .upm-uid{font-family:monospace;font-size:11px;color:var(--muted);padding:8px 20px;border-bottom:1px solid var(--border);background:#0f172a;word-break:break-all;}
+        .upm-body{padding:16px 20px;}
+        .upm-sec{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:18px 0 10px;padding-left:8px;border-left:2px solid var(--accent);}
+        .upm-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid #1e2940;font-size:13px;}
+        .upm-row .lk{color:var(--muted);}
+        .upm-row .vk{color:var(--text);font-weight:500;}
+        .upm-row .vk.g{color:var(--green);}
+        .upm-row .vk.y{color:var(--yellow);}
+        .upm-row .vk.c{color:#22d3ee;}
+        .upm-days{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+        .upm-day{background:#6366f115;border:1px solid #6366f133;border-radius:6px;padding:3px 8px;font-size:11px;color:#a5b4fc;}
+        .upm-day.last{background:#6366f140;border-color:#6366f1;color:#fff;}
+        .upm-bar-row{margin:6px 0;}
+        .upm-bar-lbl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;}
+        .upm-bar-lbl span:first-child{color:var(--muted);}
+        .upm-bar-lbl span:last-child{color:var(--text);font-weight:600;}
+        .upm-bar-track{background:#1e293b;border-radius:20px;height:8px;}
+        .upm-bar-fill{height:8px;border-radius:20px;}
+        .upm-score{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;}
+        .upm-score-item{background:#1e293b;border-radius:8px;padding:10px;text-align:center;}
+        .upm-score-item .sv{font-size:20px;font-weight:700;color:var(--text);}
+        .upm-score-item .sl{font-size:10px;color:var(--muted);margin-top:2px;}
+        /* ── Campaign Quality Tab ── */
+        .qs-bar-track{background:#1e293b;border-radius:20px;height:10px;min-width:80px;display:inline-block;vertical-align:middle;}
+        .qs-bar-fill{height:10px;border-radius:20px;transition:width .3s;}
+        .qs-score{font-weight:700;font-size:13px;margin-right:6px;}
+        .qs-score.hi{color:#22c55e;}.qs-score.md{color:#f59e0b;}.qs-score.lo{color:#ef4444;}
+        .tier-mini{display:inline-flex;border-radius:4px;overflow:hidden;height:10px;min-width:60px;vertical-align:middle;}
+        .tier-mini span{display:inline-block;height:10px;}
+        #cq-table th[onclick]:hover{color:var(--text);background:#ffffff08;cursor:pointer;}
+        #cq-table th.sort-asc::after{content:' ▲';}
+        #cq-table th.sort-desc::after{content:' ▼';}
         /* ── Section title ── */
+
         .sec{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin:28px 0 12px;padding-left:10px;border-left:3px solid var(--accent);}
         .sec.sf{border-color:#f87171;}.sec.ph{border-color:#34d399;}.sec.ob{border-color:#a78bfa;}.sec.rm{border-color:#f87171;}
-
         /* ── KPI grid ── */
         .kpis{display:grid;gap:12px;margin-bottom:12px;}
         .k4{grid-template-columns:repeat(4,1fr);}.k3{grid-template-columns:repeat(3,1fr);}.k2{grid-template-columns:repeat(2,1fr);}
@@ -97,7 +126,6 @@
         .kpi .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
         .kpi .val{font-size:26px;font-weight:700;line-height:1;}
         .kpi .sub{font-size:11px;color:var(--muted);margin-top:5px;}
-
         /* ── Two-col ── */
         .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
         .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;}
@@ -105,7 +133,6 @@
         .irow{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px;}
         .irow:last-child{border-bottom:none;}
         .irow .v{font-weight:600;}
-
         /* ── Tables ── */
         .tbl-wrap{overflow-x:auto;margin-bottom:4px;}
         table{width:100%;border-collapse:collapse;font-size:13px;}
@@ -114,7 +141,6 @@
         tr:hover td{background:var(--card2);}
         .tc{text-align:center;}.tr{text-align:right;}
         .tg{color:var(--green);font-weight:600;}.ty{color:var(--yellow);font-weight:600;}.tb{color:var(--red);font-weight:600;}
-
         /* ── Funnel / bars ── */
         .funnel{display:flex;flex-direction:column;gap:8px;margin-bottom:4px;}
         .frow{display:flex;align-items:center;gap:10px;}
@@ -123,14 +149,12 @@
         .fbar{border-radius:6px;height:26px;}
         .fval{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:700;}
         .fpct{font-size:12px;color:var(--muted);width:52px;flex-shrink:0;}
-
         .brow{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
         .blbl{font-size:12px;color:var(--muted);width:180px;text-align:right;flex-shrink:0;}
         .btrack{flex:1;background:#1e293b;border-radius:6px;height:22px;position:relative;min-width:0;}
         .bbar{border-radius:6px;height:22px;}
         .bval{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;}
         .bpct{font-size:11px;color:var(--muted);width:70px;flex-shrink:0;}
-
         /* ── Badges ── */
         .badge{display:inline-block;border-radius:4px;font-size:10px;padding:2px 6px;margin:1px;font-weight:600;}
         .bh{background:#7c3aed22;color:#a78bfa;border:1px solid #7c3aed44;}
@@ -140,28 +164,32 @@
         .bs{background:#0369a122;color:#38bdf8;border:1px solid #0369a144;}
         .bl{background:#65a30d22;color:#a3e635;border:1px solid #65a30d44;}
         .bi{background:#f59e0b22;color:#fbbf24;border:1px solid #f59e0b44;}
-
         /* ── Insight ── */
-        .insight{background:#6366f111;border:1px solid #6366f133;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;line-height:1.7;}
+        .insight{background:#6366f111;border:1px solid #6366f133;border-radius:8px;padding:10px 16px;margin-bottom:14px;font-size:12px;line-height:1.6;}
         .insight strong{color:#a5b4fc;}
         .insight.sf{background:#f8717108;border-color:#f8717133;}.insight.sf strong{color:#fca5a5;}
         .insight.ph{background:#34d39908;border-color:#34d39933;}.insight.ph strong{color:#6ee7b7;}
         .insight.rm{background:#ef444408;border-color:#ef444433;}.insight.rm strong{color:#fca5a5;}
         .insight.ob{background:#a78bfa08;border-color:#a78bfa33;}.insight.ob strong{color:#c4b5fd;}
-
+        .insight.an{background:#22d3ee08;border-color:#22d3ee33;}.insight.an strong{color:#67e8f9;}
         /* ── Mini bar (tables) ── */
         .mbar{display:inline-block;background:#1e293b;border-radius:3px;height:7px;width:80px;vertical-align:middle;}
         .mfill{border-radius:3px;height:7px;}
-
         /* ── Stars ── */
         .stars{color:#fbbf24;}
-
         /* ── Footer ── */
         .footer{margin-top:32px;padding-top:14px;border-top:1px solid var(--border);color:var(--muted);font-size:11px;}
-
         /* ── Error box ── */
         #err-box{display:none;background:#ef444411;border:1px solid #ef444444;border-radius:8px;padding:14px 16px;margin-top:16px;font-size:13px;color:#fca5a5;}
-
+        /* ── Retention chart ── */
+        .ret-chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px;}
+        .ret-chart-wrap h3{font-size:13px;font-weight:700;margin-bottom:14px;color:#22d3ee;}
+        .ret-bars{display:flex;align-items:flex-end;gap:10px;height:180px;padding:0 8px;}
+        .ret-bar-col{display:flex;flex-direction:column;align-items:center;flex:1;}
+        .ret-bar-val{font-size:11px;font-weight:700;color:var(--text);margin-bottom:4px;}
+        .ret-bar-track{width:100%;background:#1e2940;border-radius:4px 4px 0 0;position:relative;min-height:4px;}
+        .ret-bar-fill{width:100%;border-radius:4px 4px 0 0;position:absolute;bottom:0;}
+        .ret-bar-lbl{font-size:11px;color:var(--muted);margin-top:6px;font-weight:600;}
         @media(max-width:1000px){.k4{grid-template-columns:repeat(2,1fr);}.two{grid-template-columns:1fr;}}
     </style>
 </head>
@@ -170,7 +198,7 @@
 <!-- Upload -->
 <div id="upload-zone">
     <h2>🎮 Game Analytics Dashboard</h2>
-    <p>Drag & drop BigQuery NDJSON export files here, or select them.<br>Multiple files (different days) can be loaded at once.</p>
+    <p>Drag &amp; drop BigQuery NDJSON export files here, or select them.<br>Multiple files (different days) can be loaded at once.</p>
     <label class="upload-btn" for="file-input">📁 Select Files</label>
     <input type="file" id="file-input" multiple accept=".json,.ndjson">
     <div id="file-list" style="margin-top:12px"></div>
@@ -203,47 +231,59 @@
         <div class="tab" onclick="showTab('t-mkt',this)">🌍 Markets</div>
         <div class="tab" onclick="showTab('t-ob',this)">🚀 Onboarding</div>
         <div class="tab" onclick="showTab('t-rm',this)">🗑️ App Removal</div>
+        <div class="tab" onclick="showTab('t-an',this)">📈 Analytics</div>
+        <div class="tab" onclick="showTab('t-pl',this)">👥 Players</div>
+        <div class="tab" onclick="showTab('t-cq',this)">📣 Campaigns</div>
     </div>
 
-    <!-- Day filter (shared) -->
-    <div class="day-bar" id="day-bar">
-        <span>Filter by day:</span>
-        <span id="day-chips"></span>
-    </div>
-    <!-- Version filter (shared) -->
-    <div class="ver-bar" id="ver-bar">
-        <span>📦 Version:</span>
-        <span id="ver-chips"></span>
-        <span class="sel-all" onclick="selectAllVer()">all</span>
-        <span class="sel-all" onclick="selectNoneVer()">none</span>
-    </div>
-    <!-- Campaign filter (shared) -->
-    <div class="cam-bar" id="cam-bar">
-        <span>📣 Campaign:</span>
-        <span id="cam-chips"></span>
-        <div class="cam-more-wrap" id="cam-more-wrap">
-            <button class="cam-more-btn" id="cam-more-btn" onclick="toggleCamDropdown(event)">▾ more</button>
-            <div class="cam-dropdown" id="cam-dropdown">
-                <div id="cam-dd-items"></div>
+    <!-- Filter bar -->
+    <div id="fbar" style="display:none">
+        <!-- Day -->
+        <div class="fgrp">
+            <div class="fwrap">
+                <button class="fbtn fbtn-day" id="fb-day" onclick="toggleFDrop(event,'fd-day')">📅 Day <span>▾</span></button>
+                <div class="fdrop" id="fd-day">
+                    <div class="fdrop-head"><span onclick="fSelectAll('day')">all</span><span onclick="fSelectNone('day')">none</span></div>
+                    <div id="fdi-day"></div>
+                </div>
             </div>
+            <span class="fsel" id="fsel-day"></span>
         </div>
-        <span class="sel-all" onclick="selectAllCam()">all</span>
-        <span class="sel-all" onclick="selectNoneCam()">none</span>
+        <!-- Version -->
+        <div class="fgrp">
+            <div class="fwrap">
+                <button class="fbtn fbtn-ver" id="fb-ver" onclick="toggleFDrop(event,'fd-ver')">📦 Version <span>▾</span></button>
+                <div class="fdrop" id="fd-ver">
+                    <div class="fdrop-head"><span onclick="fSelectAll('ver')">all</span><span onclick="fSelectNone('ver')">none</span></div>
+                    <div id="fdi-ver"></div>
+                </div>
+            </div>
+            <span class="fsel" id="fsel-ver"></span>
+        </div>
+        <!-- Campaign -->
+        <div class="fgrp">
+            <div class="fwrap">
+                <button class="fbtn fbtn-cam" id="fb-cam" onclick="toggleFDrop(event,'fd-cam')">📣 Campaign <span>▾</span></button>
+                <div class="fdrop" id="fd-cam">
+                    <div class="fdrop-head"><span onclick="fSelectAll('cam')">all</span><span onclick="fSelectNone('cam')">none</span></div>
+                    <div id="fdi-cam"></div>
+                </div>
+            </div>
+            <span class="fsel" id="fsel-cam"></span>
+        </div>
+        <!-- Country -->
+        <div class="fgrp">
+            <div class="fwrap">
+                <button class="fbtn fbtn-ctr" id="fb-ctr" onclick="toggleFDrop(event,'fd-ctr')">🌍 Country <span>▾</span></button>
+                <div class="fdrop" id="fd-ctr">
+                    <div class="fdrop-head"><span onclick="fSelectAll('ctr')">all</span><span onclick="fSelectNone('ctr')">none</span></div>
+                    <div id="fdi-ctr"></div>
+                </div>
+            </div>
+            <span class="fsel" id="fsel-ctr"></span>
+        </div>
     </div>
     <div id="cam-debug" style="display:none;font-size:11px;color:#94a3b8;padding:6px 10px;background:#1e293b;border-radius:6px;margin-bottom:8px;line-height:1.6;"></div>
-    <!-- Country filter (shared) -->
-    <div class="ctr-bar" id="ctr-bar" style="display:none">
-        <span>🌍 Country:</span>
-        <span id="ctr-chips"></span>
-        <div class="ctr-more-wrap" id="ctr-more-wrap">
-            <button class="ctr-more-btn" id="ctr-more-btn" onclick="toggleCtrDropdown(event)">▾ more</button>
-            <div class="ctr-dropdown" id="ctr-dropdown">
-                <div id="ctr-dd-items"></div>
-            </div>
-        </div>
-        <span class="sel-all" onclick="selectAllCtr()">all</span>
-        <span class="sel-all" onclick="selectNoneCtr()">none</span>
-    </div>
 
     <!-- ═══ TAB: AD ANALYTICS ═══ -->
     <div class="tab-panel active" id="t-ads">
@@ -254,33 +294,26 @@
         <div class="kpis k4" id="ads-k2"></div>
         <div style="margin-top:12px"></div>
         <div class="kpis k3" id="ads-k3"></div>
-
         <div class="sec">Day Comparison</div>
         <div class="two" id="ads-days"></div>
-
         <div class="sec">Rewarded vs Interstitial</div>
         <div class="two" id="ads-fmt"></div>
-
         <div class="sec">By Placement</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Placement</th><th>Impr.</th><th>Users</th><th>Revenue</th><th>Avg eCPM</th><th>Volume</th>
         </tr></thead><tbody id="ads-pl-body"></tbody></table></div>
-
         <div class="sec">By Market</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Country</th><th>Users</th><th>Rewarded</th><th>Interstitial</th><th>Revenue</th><th>eCPM Rew.</th><th>eCPM Int.</th>
         </tr></thead><tbody id="ads-mkt-body"></tbody></table></div>
-
         <div class="sec">By Ad Network</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Network</th><th>Rewarded</th><th>Interstitial</th><th>Revenue</th><th>Avg eCPM</th><th>Share</th>
         </tr></thead><tbody id="ads-net-body"></tbody></table></div>
-
         <div class="sec">By Campaign</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Campaign</th><th>Medium</th><th>Source</th><th>Users</th><th>Rewarded</th><th>Interstitial</th><th>Revenue</th><th>Avg eCPM</th><th>Share</th>
         </tr></thead><tbody id="ads-cam-body"></tbody></table></div>
-
         <div class="sec">Per User <span style="font-size:11px;font-weight:400;text-transform:none;color:var(--muted)">(users with ad impressions, sorted by revenue)</span></div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>User</th><th>Country</th><th>OS</th><th>Campaign</th><th>Rew.</th><th>Int.</th><th>Revenue</th><th>eCPM</th><th>Placements</th>
@@ -294,15 +327,12 @@
         <div class="kpis k4" id="sf-k1"></div>
         <div style="margin-top:12px"></div>
         <div class="kpis k4" id="sf-k2"></div>
-
         <div class="sec sf">Death → Revive-Ad Funnel</div>
         <div class="funnel" id="sf-funnel"></div>
-
         <div class="sec sf">Stage Performance by Level</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Level</th><th>Attempts</th><th>Completed</th><th>Failed</th><th>Comp.%</th><th>Avg Score</th><th>Avg Dur.(s)</th><th>Avg Revives</th><th>Avg Coins</th>
         </tr></thead><tbody id="sf-lvl-body"></tbody></table></div>
-
         <div class="sec sf">Hero Usage</div>
         <div class="two">
             <div class="card"><h3 style="color:#f87171">🦸 Hero Popularity</h3><div id="sf-hero-bars"></div></div>
@@ -311,7 +341,6 @@
                     <tbody id="sf-hero-body"></tbody></table></div>
             </div>
         </div>
-
         <div class="sec sf">Per User</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>User</th><th>Country</th><th>Runs</th><th>Compl.</th><th>Comp.%</th><th>Avg Score</th><th>Avg Dur.(s)</th><th>Revives</th><th>Ad-Revives</th><th>Fav. Hero</th>
@@ -325,21 +354,17 @@
         <div class="kpis k4" id="ph-k1"></div>
         <div style="margin-top:12px"></div>
         <div class="kpis k3" id="ph-k2"></div>
-
         <div class="sec ph">Completion Funnel</div>
         <div class="funnel" id="ph-funnel"></div>
-
         <div class="sec ph">Level Performance</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Level</th><th>Attempts</th><th>Completed</th><th>Failed</th><th>Exits</th><th>Comp.%</th><th>Avg Score</th><th>Avg Dur.(s)</th><th>Avg Stars</th>
         </tr></thead><tbody id="ph-lvl-body"></tbody></table></div>
-
         <div class="sec ph">Star Distribution &amp; Engagement</div>
         <div class="two">
             <div class="card"><h3 style="color:#34d399">⭐ Star Distribution (completed levels)</h3><div id="ph-stars"></div></div>
             <div class="card"><h3 style="color:#34d399">📈 Engagement</h3><div id="ph-engage"></div></div>
         </div>
-
         <div class="sec ph">Per User</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>User</th><th>Country</th><th>Attempts</th><th>Compl.</th><th>Comp.%</th><th>Avg Score</th><th>Avg Dur.(s)</th><th>Avg Stars</th><th>Exits</th>
@@ -353,10 +378,8 @@
         <div class="tbl-wrap"><table><thead><tr>
             <th>Country</th><th>Users</th><th>SF Runs</th><th>SF Comp.%</th><th>SF Avg Score</th><th>SF Revive-Ad%</th><th>PH Runs</th><th>PH Comp.%</th><th>PH Avg Stars</th><th>Revenue</th><th>eCPM</th>
         </tr></thead><tbody id="mkt-body"></tbody></table></div>
-
         <div class="sec" style="border-color:#fbbf24">Market Cards</div>
         <div id="mkt-cards"></div>
-
         <div class="sec" style="border-color:#fbbf24">Death → Revive-Ad Conversion by Market</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Country</th><th>SF Deaths</th><th>Revive-Ads</th><th>Rate%</th><th>Avg eCPM (Revive)</th><th>Revenue (Revive)</th>
@@ -365,47 +388,123 @@
 
     <!-- ═══ TAB: ONBOARDING ═══ -->
     <div class="tab-panel" id="t-ob">
-        <div class="all-note">⚠️ This tab shows <strong>all uploaded days</strong> — the day filter does not apply here, but the <strong>version filter does</strong>.</div>
         <div class="insight ob" id="ob-insight"></div>
         <div class="sec ob">First Opens &amp; Tutorial</div>
         <div class="kpis k4" id="ob-k1"></div>
         <div style="margin-top:12px"></div>
         <div class="kpis k4" id="ob-k2"></div>
-
         <div class="sec ob">Bootstrap Step Performance</div>
         <div id="ob-bootstrap"></div>
-
         <div class="sec ob">Tutorial Completion Funnel</div>
         <div class="funnel" id="ob-funnel"></div>
     </div>
 
     <!-- ═══ TAB: APP REMOVAL ═══ -->
     <div class="tab-panel" id="t-rm">
-        <div class="all-note">⚠️ This tab shows <strong>all uploaded days</strong> — the day filter does not apply here, but the <strong>version filter does</strong>.</div>
         <div class="insight rm" id="rm-insight"></div>
         <div class="sec rm">Overview</div>
         <div class="kpis k4" id="rm-k1"></div>
-
         <div class="sec rm">Session Depth at Removal</div>
         <div id="rm-sessions"></div>
-
         <div class="sec rm">Removals by Day / Table</div>
         <div id="rm-byDay"></div>
-
         <div class="sec rm">Last Screen at Removal</div>
         <div class="tbl-wrap"><table><thead><tr><th>Screen</th><th>Count</th><th>%</th></tr></thead>
             <tbody id="rm-screen-body"></tbody></table></div>
-
         <div class="sec rm">Behavior Before Removal</div>
         <div id="rm-behavior"></div>
-
         <div class="sec rm">Farthest Tutorial Step Reached (among removers)</div>
         <div id="rm-tut-steps"></div>
-
         <div class="sec rm">By Country</div>
         <div class="tbl-wrap"><table><thead><tr>
             <th>Country</th><th>Removals</th><th>% Session 1</th><th>% With Tutorial</th><th>% Played Game</th>
         </tr></thead><tbody id="rm-country-body"></tbody></table></div>
+    </div>
+
+    <!-- ═══ TAB: ANALYTICS ═══ -->
+    <div class="tab-panel" id="t-an">
+        <div class="all-note" id="an-note" style="display:none">⚠️ Retention analysis requires <strong>multiple days</strong> of data. Load files from different days to calculate cohort retention.</div>
+        <div class="insight an" id="an-insight"></div>
+
+        <div class="sec" style="border-color:#22d3ee">User Retention — Cohort Analysis</div>
+        <div class="kpis k4" id="an-ret-kpis"></div>
+        <div id="an-ret-chart"></div>
+
+        <div class="sec" style="border-color:#22d3ee">Retention by Campaign</div>
+        <div class="tbl-wrap"><table><thead><tr>
+            <th>Campaign</th><th>Cohort</th><th>R1</th><th>R2</th><th>R3</th><th>R5</th><th>R7</th><th>R14</th><th>R30</th>
+        </tr></thead><tbody id="an-ret-cam-body"></tbody></table></div>
+
+        <div class="sec" style="border-color:#22d3ee">Retention nach Land</div>
+        <div class="tbl-wrap"><table><thead><tr>
+            <th>Country</th><th>Cohort</th><th>R1</th><th>R2</th><th>R3</th><th>R5</th><th>R7</th><th>R14</th><th>R30</th>
+        </tr></thead><tbody id="an-ret-ctr-body"></tbody></table></div>
+
+        <div class="sec" style="border-color:#fb923c">Average Play Time (Active Users)</div>
+        <div class="kpis k3" id="an-play-kpis"></div>
+
+        <div class="sec" style="border-color:#fb923c">Play Time by Campaign</div>
+        <div class="tbl-wrap"><table><thead><tr>
+            <th>Campaign</th><th>Active Users</th><th>Avg Play Time</th><th>Total</th>
+        </tr></thead><tbody id="an-play-cam-body"></tbody></table></div>
+
+        <div class="sec" style="border-color:#fb923c">Play Time by Country</div>
+        <div class="tbl-wrap"><table><thead><tr>
+            <th>Country</th><th>Active Users</th><th>Avg Play Time</th><th>Total</th>
+        </tr></thead><tbody id="an-play-ctr-body"></tbody></table></div>
+    </div>
+
+    <!-- ═══ TAB: PLAYERS ═══ -->
+    <div class="tab-panel" id="t-pl">
+        <div class="insight" id="pl-insight" style="background:#a78bfa08;border-color:#a78bfa33;"></div>
+        <div class="sec" style="border-color:#a78bfa">Active Player Base</div>
+        <div class="kpis k4" id="pl-kpis"></div>
+
+        <div class="sec" style="border-color:#a78bfa;margin-top:20px">Player List
+            <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:12px">Click column header to sort · Uninstalled users hidden</span>
+        </div>
+        <div style="overflow-x:auto">
+            <table id="pl-table">
+                <thead><tr>
+                    <th style="width:60px">Tier</th>
+                    <th onclick="plSort('uid')" style="cursor:pointer">User ID ↕</th>
+                    <th onclick="plSort('country')" style="cursor:pointer">Land ↕</th>
+                    <th onclick="plSort('ver')" style="cursor:pointer">Version ↕</th>
+                    <th onclick="plSort('days')" style="cursor:pointer">Days ↕</th>
+                    <th onclick="plSort('last')" style="cursor:pointer">Last seen ↕</th>
+                    <th onclick="plSort('eng')" style="cursor:pointer">Avg Eng. ↕</th>
+                    <th onclick="plSort('sf')" style="cursor:pointer">SF ↕</th>
+                    <th onclick="plSort('ph')" style="cursor:pointer">PH ↕</th>
+                    <th onclick="plSort('ads')" style="cursor:pointer">Ads ↕</th>
+                    <th onclick="plSort('ltv')" style="cursor:pointer">LTV ↕</th>
+                </tr></thead>
+                <tbody id="pl-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="tab-panel" id="t-cq">
+        <div class="insight" id="cq-insight" style="background:#fb923c08;border-color:#fb923c33;"></div>
+        <div class="sec" style="border-color:#fb923c">Campaign Quality Score
+            <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:12px">Weighted score from LTV · Churn · Champion% · Engagement · Retention · Click to sort</span>
+        </div>
+        <div class="kpis k4" id="cq-kpis"></div>
+        <div style="overflow-x:auto;margin-top:8px">
+            <table id="cq-table">
+                <thead><tr>
+                    <th onclick="cqSort('score')" style="min-width:140px">Score ↕</th>
+                    <th onclick="cqSort('name')">Campaign ↕</th>
+                    <th onclick="cqSort('users')">Users ↕</th>
+                    <th onclick="cqSort('churn')">Churn ↕</th>
+                    <th onclick="cqSort('champ')">Champion% ↕</th>
+                    <th onclick="cqSort('ltv')">Avg LTV ↕</th>
+                    <th onclick="cqSort('eng')">Avg Eng. ↕</th>
+                    <th onclick="cqSort('days')">Avg Days ↕</th>
+                    <th style="min-width:80px">Tier Mix</th>
+                </tr></thead>
+                <tbody id="cq-body"></tbody>
+            </table>
+        </div>
     </div>
 
     <div class="footer" id="footer"></div>
@@ -415,7 +514,53 @@
     // ── Constants ─────────────────────────────────────────────────────────────────
     const FLAGS={'Germany':'🇩🇪','Brazil':'🇧🇷','Mexico':'🇲🇽','Georgia':'🇬🇪','United States':'🇺🇸',
         'France':'🇫🇷','Spain':'🇪🇸','Italy':'🇮🇹','India':'🇮🇳','Indonesia':'🇮🇩',
-        'Turkey':'🇹🇷','Russia':'🇷🇺','Zimbabwe':'🇿🇼','United Kingdom':'🇬🇧'};
+        'Turkey':'🇹🇷','Russia':'🇷🇺','Zimbabwe':'🇿🇼','United Kingdom':'🇬🇧',
+        'Argentina':'🇦🇷','Australia':'🇦🇺','Austria':'🇦🇹','Bangladesh':'🇧🇩','Belgium':'🇧🇪',
+        'Bolivia':'🇧🇴','Canada':'🇨🇦','Chile':'🇨🇱','China':'🇨🇳','Colombia':'🇨🇴',
+        'Croatia':'🇭🇷','Czech Republic':'🇨🇿','Denmark':'🇩🇰','Ecuador':'🇪🇨','Egypt':'🇪🇬',
+        'Ethiopia':'🇪🇹','Finland':'🇫🇮','Ghana':'🇬🇭','Greece':'🇬🇷','Guatemala':'🇬🇹',
+        'Honduras':'🇭🇳','Hong Kong':'🇭🇰','Hungary':'🇭🇺','Iran':'🇮🇷','Iraq':'🇮🇶',
+        'Ireland':'🇮🇪','Israel':'🇮🇱','Japan':'🇯🇵','Jordan':'🇯🇴','Kazakhstan':'🇰🇿',
+        'Kenya':'🇰🇪','Kuwait':'🇰🇼','Lebanon':'🇱🇧','Malaysia':'🇲🇾','Morocco':'🇲🇦',
+        'Myanmar':'🇲🇲','Nepal':'🇳🇵','Netherlands':'🇳🇱','New Zealand':'🇳🇿','Nigeria':'🇳🇬',
+        'Norway':'🇳🇴','Pakistan':'🇵🇰','Panama':'🇵🇦','Peru':'🇵🇪','Philippines':'🇵🇭',
+        'Poland':'🇵🇱','Portugal':'🇵🇹','Qatar':'🇶🇦','Romania':'🇷🇴','Saudi Arabia':'🇸🇦',
+        'Singapore':'🇸🇬','South Africa':'🇿🇦','South Korea':'🇰🇷','Sri Lanka':'🇱🇰',
+        'Sweden':'🇸🇪','Switzerland':'🇨🇭','Taiwan':'🇹🇼','Tanzania':'🇹🇿','Thailand':'🇹🇭',
+        'Tunisia':'🇹🇳','Ukraine':'🇺🇦','United Arab Emirates':'🇦🇪','Uruguay':'🇺🇾',
+        'Venezuela':'🇻🇪','Vietnam':'🇻🇳','Yemen':'🇾🇪','Serbia':'🇷🇸','Senegal':'🇸🇳'};
+    // ── ISO-2 → Full country name (normalizes "BR" → "Brazil", "MX" → "Mexico", etc.) ─
+    const ISO2NAME={'AF':'Afghanistan','AL':'Albania','DZ':'Algeria','AR':'Argentina',
+        'AM':'Armenia','AU':'Australia','AT':'Austria','AZ':'Azerbaijan','BH':'Bahrain',
+        'BD':'Bangladesh','BY':'Belarus','BE':'Belgium','BZ':'Belize','BO':'Bolivia',
+        'BA':'Bosnia and Herzegovina','BW':'Botswana','BR':'Brazil','BG':'Bulgaria',
+        'KH':'Cambodia','CA':'Canada','TD':'Chad','CL':'Chile','CN':'China','CO':'Colombia',
+        'CD':'Congo - Kinshasa','CG':'Congo - Brazzaville','CR':'Costa Rica','HR':'Croatia',
+        'CU':'Cuba','CY':'Cyprus','CZ':'Czech Republic','DK':'Denmark',
+        'DO':'Dominican Republic','EC':'Ecuador','EG':'Egypt','SV':'El Salvador',
+        'ET':'Ethiopia','FI':'Finland','FR':'France','GE':'Georgia','DE':'Germany',
+        'GH':'Ghana','GR':'Greece','GT':'Guatemala','HT':'Haiti','HN':'Honduras',
+        'HK':'Hong Kong','HU':'Hungary','IN':'India','ID':'Indonesia','IR':'Iran',
+        'IQ':'Iraq','IE':'Ireland','IL':'Israel','IT':'Italy','CI':"Côte d'Ivoire",
+        'JM':'Jamaica','JP':'Japan','JO':'Jordan','KZ':'Kazakhstan','KE':'Kenya',
+        'KG':'Kyrgyzstan','KW':'Kuwait','LB':'Lebanon','LY':'Libya','MG':'Madagascar',
+        'MY':'Malaysia','MX':'Mexico','MA':'Morocco','MM':'Myanmar','NP':'Nepal',
+        'NL':'Netherlands','NZ':'New Zealand','NI':'Nicaragua','NG':'Nigeria',
+        'NO':'Norway','PK':'Pakistan','PA':'Panama','PE':'Peru','PH':'Philippines',
+        'PL':'Poland','PT':'Portugal','PR':'Puerto Rico','QA':'Qatar','RO':'Romania',
+        'RU':'Russia','SA':'Saudi Arabia','SN':'Senegal','RS':'Serbia','SG':'Singapore',
+        'ZA':'South Africa','KR':'South Korea','ES':'Spain','LK':'Sri Lanka','SD':'Sudan',
+        'SE':'Sweden','CH':'Switzerland','SZ':'Eswatini','TW':'Taiwan','TZ':'Tanzania',
+        'TH':'Thailand','TL':'Timor-Leste','TN':'Tunisia','TR':'Türkiye','UG':'Uganda',
+        'UA':'Ukraine','AE':'United Arab Emirates','GB':'United Kingdom',
+        'US':'United States','UY':'Uruguay','UZ':'Uzbekistan','VE':'Venezuela',
+        'VN':'Vietnam','YE':'Yemen','ZM':'Zambia','ZW':'Zimbabwe'};
+    function normCountry(c){
+        if(!c)return c;
+        const up=c.trim().toUpperCase();
+        if(up.length===2&&ISO2NAME[up])return ISO2NAME[up];
+        return c.trim();
+    }
     const PL={'ShadowFall_Revive':'SF Revive','ShadowFall_Hero_Unlock':'SF Hero Unlock',
         'Gems_Ads_Offer':'Gems Offer','Coin_Doubling':'Coin Doubling',
         'Scratch_Card':'Scratch Card','Leaderboard_Double_Reward':'LB Double',
@@ -494,6 +639,8 @@
             const saved=await dbGet('gad_state');
             if(!saved||!saved.all?.length)return;
             ALL=saved.all;
+            // Normalize country codes in restored data (handles old cached data)
+            for(const e of ALL){if(e.country)e.country=normCountry(e.country);}
             DAYS=[...new Set(ALL.map(e=>e.source_table))].filter(Boolean).sort();
             ACTIVE=new Set(DAYS);
             VERSIONS=[...new Set(ALL.map(e=>e.app_version))].filter(Boolean).sort((a,b)=>{
@@ -515,7 +662,7 @@
             const ds=d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})
                 +' '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
             $('rpt-sub').textContent=`Saved data from ${ds} · ${saved.files.join(', ')} · Click "Load New Files" to reload`;
-            buildDayBar();renderAll();
+            buildFilterBar();renderAll();
         }catch(e){console.warn('Could not restore:',e);}
     })();
 
@@ -534,12 +681,11 @@
         $('err-box').style.display='none';
         $('progress').style.display='block';
         $('report').style.display='none';
-
         try {
             await parseFiles(files);
             $('progress').style.display='none';
             $('report').style.display='block';
-            buildDayBar();
+            buildFilterBar();
             renderAll();
         } catch(e) {
             $('progress').style.display='none';
@@ -558,21 +704,16 @@
     const yield_=()=>new Promise(r=>setTimeout(r,0));
 
     async function parseFiles(files){
-        // Step 1: read all file text
         const texts=[];
         for(let i=0;i<files.length;i++){
             setProgress(i/files.length*15,`📂 Reading file ${i+1}/${files.length}…`,files[i].name+` (${(files[i].size/1048576).toFixed(1)} MB)`);
             await yield_();
             texts.push(await files[i].text());
         }
-
-        // Step 2: split lines
         setProgress(15,'✂️ Splitting lines…','Counting rows…');await yield_();
         const lines=[];
         for(const t of texts)for(const l of t.split('\n'))if(l.trim())lines.push(l);
         const total=lines.length;
-
-        // Step 3: parse + pivot in chunks
         const CHUNK=8000;
         const map=new Map();
         for(let i=0;i<total;i+=CHUNK){
@@ -581,7 +722,6 @@
             const end=Math.min(i+CHUNK,total);
             for(let j=i;j<end;j++){
                 let r;try{r=JSON.parse(lines[j]);}catch{continue;}
-                // Flatten nested BigQuery structs
                 if(r.traffic_source){
                     r.traffic_source_name=r.traffic_source.name||r.traffic_source_name||'';
                     r.traffic_source_medium=r.traffic_source.medium||r.traffic_source_medium||'';
@@ -619,10 +759,10 @@
                 if(j<2000){window._dbgKeys=window._dbgKeys||{};for(const k of Object.keys(r))window._dbgKeys[k]=(window._dbgKeys[k]||0)+1;}
             }
         }
-
         setProgress(95,'📊 Finalising…','Building event index…');await yield_();
         ALL=[...map.values()];
-        // Propagate campaign from acquisition events to all user events
+        // ── Normalize country codes to full names (BR→Brazil, MX→Mexico, etc.) ──
+        for(const e of ALL){if(e.country)e.country=normCountry(e.country);}
         const userCamMap={};
         for(const e of ALL){
             const cam=e.campaign||e.traffic_source_name||'';
@@ -657,165 +797,107 @@
         COUNTRIES=Object.keys(ctrCnt).sort((a,b)=>ctrCnt[b]-ctrCnt[a]);
         ACTIVE_CTR=new Set(COUNTRIES);
         setProgress(100,'✅ Done',`${total.toLocaleString()} rows → ${ALL.length.toLocaleString()} events, ${DAYS.length} day(s), ${VERSIONS.length} version(s)`);
-
-        // Save to IndexedDB
         try{
             await dbSet('gad_state',{all:ALL,savedAt:new Date().toISOString(),files:FILES.map(f=>f.name)});
         }catch(e){console.warn('IndexedDB save failed:',e);}
         await yield_();
     }
 
-    // ── Day + Version filter ──────────────────────────────────────────────────────
-    function buildDayBar(){
-        $('day-chips').innerHTML=DAYS.map(d=>`<span class="day-chip on" data-day="${d}" onclick="toggleDay(this,'${d}')">${fday(d)}</span>`).join('');
-        $('ver-chips').innerHTML=VERSIONS.map(v=>`<span class="ver-chip on" data-ver="${v}" onclick="toggleVer(this,'${v}')">${v}</span>`).join('');
-        $('ver-bar').style.display=VERSIONS.length<=1?'none':'flex';
-        buildCamBar();
-        buildCtrBar();
+    // ── Filter bar ─────────────────────────────────────────────────────────────────
+    function fArr(dim){return dim==='day'?DAYS:dim==='ver'?VERSIONS:dim==='cam'?CAMPAIGNS:COUNTRIES;}
+    function fSet(dim){return dim==='day'?ACTIVE:dim==='ver'?ACTIVE_VER:dim==='cam'?ACTIVE_CAM:ACTIVE_CTR;}
+
+    function buildFilterBar(){
+        const f2=str=>str.replace(/'/g,"\'").replace(/"/g,'&quot;');
+        $('fdi-day').innerHTML=DAYS.map((d,i)=>
+            `<div class="fdrop-item on" data-i="${i}" onclick="fToggleI(event,this,'day',${i})"><span class="fcheck"></span>${fday(d)}</div>`
+        ).join('');
+        $('fdi-ver').innerHTML=VERSIONS.map((v,i)=>
+            `<div class="fdrop-item on" data-i="${i}" onclick="fToggleI(event,this,'ver',${i})"><span class="fcheck"></span>${v}</div>`
+        ).join('');
+        $('fdi-cam').innerHTML=CAMPAIGNS.map((v,i)=>{
+            const lbl=(v||'(direct)');
+            const short=lbl.length>38?lbl.slice(0,36)+'…':lbl;
+            return`<div class="fdrop-item on" data-i="${i}" onclick="fToggleI(event,this,'cam',${i})"><span class="fcheck"></span><span title="${f2(lbl)}">${short}</span></div>`;
+        }).join('');
+        $('fdi-ctr').innerHTML=COUNTRIES.map((c,i)=>{
+            const lbl=c||'Unknown';
+            return`<div class="fdrop-item on" data-i="${i}" onclick="fToggleI(event,this,'ctr',${i})"><span class="fcheck"></span>${f(lbl)} ${lbl}</div>`;
+        }).join('');
+        $('fb-ver').style.display=VERSIONS.length<=1?'none':'';
+        updateFilterSel();
+        $('fbar').style.display='';
         const realCams=CAMPAIGNS.filter(Boolean);
         const dbgEl=$('cam-debug');
         if(dbgEl){
             if(realCams.length===0){
                 const camFields=window._dbgCamFields||{};
                 const allKeys=window._dbgKeys||{};
-                const camKeyStr=Object.keys(camFields).length?Object.entries(camFields).map(([k,n])=>`<b>${k}</b>(${n}x)`).join(', '):'keine gefunden';
+                const camKeyStr=Object.keys(camFields).length?Object.entries(camFields).map(([k,n])=>`<b>${k}</b>(${n}x)`).join(', '):'none found';
                 const trafficKeys=Object.keys(allKeys).filter(k=>k.toLowerCase().includes('traffic')||k.toLowerCase().includes('source')||k.toLowerCase().includes('medium'));
                 const trafficStr=trafficKeys.length?trafficKeys.map(k=>`<b>${k}</b>`).join(', '):'–';
-                dbgEl.innerHTML='<span style="color:#f59e0b">⚠ Keine Kampagnen-Felder in den NDJSON-Rows gefunden.</span>'
-                    +' Kampagnen-Keys: '+camKeyStr+' | Traffic-Keys: '+trafficStr
-                    +' | <a href="#" style="color:#7dd3fc" onclick="showRawDiag();return false">alle Keys zeigen</a>';
+                dbgEl.innerHTML='<span style="color:#f59e0b">⚠ No campaign fields found.</span> Keys: '+camKeyStr+' | Traffic: '+trafficStr;
                 dbgEl.style.display='block';
-            } else {
-                dbgEl.style.display='none';
-            }
+            }else{dbgEl.style.display='none';}
         }
     }
-    function toggleDay(el,d){
-        if(ACTIVE.has(d)){ACTIVE.delete(d);el.classList.remove('on');}
-        else{ACTIVE.add(d);el.classList.add('on');}
-        renderAll();
+
+    function fToggleI(ev,el,dim,i){
+        ev&&ev.stopPropagation();
+        const v=fArr(dim)[i];
+        const s=fSet(dim);
+        if(s.has(v)){s.delete(v);}else{s.add(v);}
+        const dropEl=$('fdi-'+dim)?$('fdi-'+dim).querySelector('[data-i="'+i+'"]'):null;
+        if(dropEl)dropEl.classList.toggle('on',s.has(v));
+        updateFilterSel();renderAll();
     }
-    function toggleVer(el,v){
-        if(ACTIVE_VER.has(v)){ACTIVE_VER.delete(v);el.classList.remove('on');}
-        else{ACTIVE_VER.add(v);el.classList.add('on');}
-        renderAll();
+    function fSelectAll(dim){
+        const s=fSet(dim);fArr(dim).forEach(v=>s.add(v));
+        const cont=$('fdi-'+dim);if(cont)cont.querySelectorAll('.fdrop-item').forEach(el=>el.classList.add('on'));
+        updateFilterSel();renderAll();
     }
-    function selectAllVer(){
-        VERSIONS.forEach(v=>ACTIVE_VER.add(v));
-        document.querySelectorAll('.ver-chip').forEach(c=>c.classList.add('on'));
-        renderAll();
+    function fSelectNone(dim){
+        fSet(dim).clear();
+        const cont=$('fdi-'+dim);if(cont)cont.querySelectorAll('.fdrop-item').forEach(el=>el.classList.remove('on'));
+        updateFilterSel();renderAll();
     }
-    function selectNoneVer(){
-        ACTIVE_VER.clear();
-        document.querySelectorAll('.ver-chip').forEach(c=>c.classList.remove('on'));
-        renderAll();
+    function updateFilterSel(){
+        const MAX_CHIPS=4;
+        const defs=[
+            {dim:'day',s:ACTIVE,arr:DAYS,lbl:d=>fday(d),cls:'fchip-day',btn:'fb-day'},
+            {dim:'ver',s:ACTIVE_VER,arr:VERSIONS,lbl:v=>v,cls:'fchip-ver',btn:'fb-ver'},
+            {dim:'cam',s:ACTIVE_CAM,arr:CAMPAIGNS,lbl:v=>v||'(direct)',cls:'fchip-cam',btn:'fb-cam'},
+            {dim:'ctr',s:ACTIVE_CTR,arr:COUNTRIES,lbl:c=>(f(c||'')+(c?' '+c:'?')),cls:'fchip-ctr',btn:'fb-ctr'},
+        ];
+        for(const {dim,s,arr,lbl,cls,btn} of defs){
+            const isAll=s.size>=arr.length;
+            const btnEl=$(btn);if(btnEl)btnEl.classList.toggle('active',!isAll);
+            const selEl=$('fsel-'+dim);if(!selEl)continue;
+            if(isAll){selEl.innerHTML='';continue;}
+            const selected=arr.map((v,i)=>({v,i})).filter(({v})=>s.has(v));
+            const shown=selected.slice(0,MAX_CHIPS);
+            const rest=selected.length-MAX_CHIPS;
+            selEl.innerHTML=shown.map(({v,i})=>{
+                const l=lbl(v);
+                const display=l.length>20?l.slice(0,18)+'…':l;
+                return`<span class="fchip ${cls}" title="${(v||'').replace(/"/g,'')}">${display}<span class="fchip-x" onclick="fToggleI(event,null,'${dim}',${i})">×</span></span>`;
+            }).join('')+(rest>0?`<span class="fchip ${cls}" style="opacity:.7;cursor:pointer" onclick="toggleFDrop(event,'fd-${dim}')">+${rest} more</span>`:'');
+        }
     }
-    function toggleCam(el,v){
-        if(ACTIVE_CAM.has(v)){ACTIVE_CAM.delete(v);el.classList.remove('on');}
-        else{ACTIVE_CAM.add(v);el.classList.add('on');}
-        renderAll();
-    }
-    function buildCtrBar(){
-        const TOP=8;
-        const ctrCnt={};for(const e of ALL){const c=e.country||'';ctrCnt[c]=(ctrCnt[c]||0)+1;}
-        const top=COUNTRIES.slice(0,TOP);
-        const rest=COUNTRIES.slice(TOP);
-        $('ctr-chips').innerHTML=top.map(c=>{
-            const lbl=c||'(unknown)';
-            return '<span class="ctr-chip on" data-ctr="'+c+'" title="'+lbl+' ('+ctrCnt[c]+')" onclick="toggleCtr(this,\''+c+'\')">'+lbl+'</span>';
-        }).join('');
-        $('ctr-dd-items').innerHTML=rest.map(c=>{
-            const lbl=c||'(unknown)';
-            return '<div class="ctr-dd-item on" data-ctr="'+c+'" onclick="toggleCtrDd(this,\''+c+'\')">'
-                +'<span class="ctr-dd-check"></span>'+lbl
-                +' <span style="color:var(--muted);font-size:10px;margin-left:auto;padding-left:8px">'+ctrCnt[c]+'</span></div>';
-        }).join('');
-        updateCtrMoreBtn();
-        $('ctr-bar').style.display=COUNTRIES.length?'block':'none';
-    }
-    function updateCtrMoreBtn(){
-        const rest=COUNTRIES.slice(8);
-        const btn=$('ctr-more-btn');
-        if(!btn)return;
-        if(!rest.length){btn.style.display='none';return;}
-        btn.style.display='';
-        const inactive=rest.filter(c=>!ACTIVE_CTR.has(c)).length;
-        btn.textContent='▾ +'+rest.length+' countries';
-        btn.className='ctr-more-btn'+(inactive>0?' partial':'');
-    }
-    function toggleCtrDropdown(ev){
+    function toggleFDrop(ev,dropId){
         ev.stopPropagation();
-        $('ctr-dropdown').classList.toggle('open');
+        const drop=$(dropId);
+        const isOpen=drop.classList.contains('open');
+        document.querySelectorAll('.fdrop').forEach(d=>d.classList.remove('open'));
+        if(!isOpen)drop.classList.add('open');
     }
-    document.addEventListener('click',()=>{const d=$('ctr-dropdown');if(d)d.classList.remove('open');});
-    function toggleCtr(el,c){
-        if(ACTIVE_CTR.has(c)){ACTIVE_CTR.delete(c);el.classList.remove('on');}
-        else{ACTIVE_CTR.add(c);el.classList.add('on');}
-        render();
-    }
-    function toggleCtrDd(el,c){
-        if(ACTIVE_CTR.has(c)){ACTIVE_CTR.delete(c);el.classList.remove('on');}
-        else{ACTIVE_CTR.add(c);el.classList.add('on');}
-        updateCtrMoreBtn();render();
-    }
-    function selectAllCtr(){
-        COUNTRIES.forEach(c=>ACTIVE_CTR.add(c));
-        document.querySelectorAll('.ctr-chip,.ctr-dd-item').forEach(el=>el.classList.add('on'));
-        updateCtrMoreBtn();render();
-    }
-    function selectNoneCtr(){
-        ACTIVE_CTR.clear();
-        document.querySelectorAll('.ctr-chip,.ctr-dd-item').forEach(el=>el.classList.remove('on'));
-        updateCtrMoreBtn();render();
-    }
+    document.addEventListener('click',()=>{
+        document.querySelectorAll('.fdrop').forEach(d=>d.classList.remove('open'));
+    });
     function showRawDiag(){
         const keys=window._dbgKeys||{};
         const sorted=Object.entries(keys).sort((a,b)=>b[1]-a[1]);
-        alert('Top NDJSON keys (name: count):\n'+sorted.map(([k,n])=>k+': '+n).join('\n'));
-    }
-    function buildCamBar(){
-        const TOP=5;
-        const camCnt={};for(const e of ALL){const c=e.campaign||'';camCnt[c]=(camCnt[c]||0)+1;}
-        const top=CAMPAIGNS.slice(0,TOP);
-        const rest=CAMPAIGNS.slice(TOP);
-        $('cam-chips').innerHTML=top.map(v=>{
-            const lbl=v||'(no campaign)';
-            return '<span class="cam-chip on" data-cam="'+v+'" title="'+lbl+'" onclick="toggleCam(this,\''+v+'\')">'+lbl+'</span>';
-        }).join('');
-        $('cam-dd-items').innerHTML=rest.map(v=>{
-            const lbl=v||'(no campaign)';
-            return '<div class="cam-dd-item on" data-cam="'+v+'" onclick="toggleCamDd(this,\''+v+'\')"><span class="cam-dd-check"></span>'+lbl
-                +' <span style="color:var(--muted);font-size:10px;margin-left:auto;padding-left:8px">'+(camCnt[v]||0)+'</span></div>';
-        }).join('');
-        updateCamMoreBtn();
-        $('cam-bar').style.display='block';
-    }
-    function updateCamMoreBtn(){
-        const rest=CAMPAIGNS.slice(5);
-        const btn=$('cam-more-btn');
-        if(!btn)return;
-        if(!rest.length){btn.style.display='none';return;}
-        btn.style.display='';
-        const inactive=rest.filter(c=>!ACTIVE_CAM.has(c)).length;
-        btn.textContent='\u25be +'+rest.length+' campaigns';
-        btn.className='cam-more-btn'+(inactive>0?' partial':'');
-    }
-    function toggleCamDropdown(ev){ev.stopPropagation();$('cam-dropdown').classList.toggle('open');}
-    document.addEventListener('click',()=>{const d=$('cam-dropdown');if(d)d.classList.remove('open');});
-    function toggleCamDd(el,v){
-        if(ACTIVE_CAM.has(v)){ACTIVE_CAM.delete(v);el.classList.remove('on');}
-        else{ACTIVE_CAM.add(v);el.classList.add('on');}
-        updateCamMoreBtn();renderAll();
-    }
-    function selectAllCam(){
-        CAMPAIGNS.forEach(v=>ACTIVE_CAM.add(v));
-        document.querySelectorAll('.cam-chip,.cam-dd-item').forEach(el=>el.classList.add('on'));
-        updateCamMoreBtn();renderAll();
-    }
-    function selectNoneCam(){
-        ACTIVE_CAM.clear();
-        document.querySelectorAll('.cam-chip,.cam-dd-item').forEach(el=>el.classList.remove('on'));
-        updateCamMoreBtn();renderAll();
+        alert('Top NDJSON keys:\n'+sorted.map(([k,n])=>k+': '+n).join('\n'));
     }
     function filtered(){
         const allVer=ACTIVE_VER.size===VERSIONS.length;
@@ -826,14 +908,7 @@
             &&(allCam||ACTIVE_CAM.has(e.campaign||''))
             &&(allCtr||ACTIVE_CTR.has(e.country||'')));
     }
-    function filteredVer(){
-        const allVer=ACTIVE_VER.size===VERSIONS.length;
-        const allCam=ACTIVE_CAM.size===CAMPAIGNS.length;
-        const allCtr=ACTIVE_CTR.size===COUNTRIES.length;
-        return ALL.filter(e=>(allVer||!e.app_version||ACTIVE_VER.has(e.app_version))
-            &&(allCam||ACTIVE_CAM.has(e.campaign||''))
-            &&(allCtr||ACTIVE_CTR.has(e.country||'')));
-    }
+    function filteredVer(){return filtered();}
 
     // ── Tab switching ─────────────────────────────────────────────────────────────
     function showTab(id,el){
@@ -852,6 +927,9 @@
         renderMarket(evs);
         renderOnboarding(evsVer);
         renderRemoval(evsVer);
+        renderAnalytics(evs);
+        renderPlayers(evs);
+        renderCampaignQuality(evs);
         const verLabel=ACTIVE_VER.size===VERSIONS.length?'all versions':[...ACTIVE_VER].join(', ')||'(none)';
         const camLabel=ACTIVE_CAM.size===CAMPAIGNS.length?'all campaigns':[...ACTIVE_CAM].map(v=>v||'(no campaign)').join(', ')||'(none)';
         $('footer').textContent=`Source: BigQuery NDJSON  ·  Tables: ${DAYS.join(', ')}  ·  Versions: ${verLabel}  ·  Campaigns: ${camLabel}  ·  eCPM = revenue × 1000 (BID precision)  ·  Revenue in USD`;
@@ -871,30 +949,24 @@
         const uWithAds=new Set(imps.map(e=>e.user_pseudo_id)).size;
         const ecpmR=rw.length?rrv/rw.length*1000:0;
         const ecpmI=it.length?irv/it.length*1000:0;
-
         const pl=t=>imps.filter(e=>e.placement===t).length;
         const bestMktC=bestMkt(imps);
         const bestPlC=bestPlacement(imps);
-
         setHTML('ads-insight',`<strong>💡 Ad Insight:</strong> `+
             (it.length?`Interstitials active: <strong>${it.length}</strong> impressions, eCPM <strong>${ecpm(ecpmI)}</strong> vs Rewarded <strong>${ecpm(ecpmR)}</strong>. `
                 :`No interstitial data yet. Rewarded eCPM: <strong>${ecpm(ecpmR)}</strong>. `)+
             `Top market: <strong>${f(bestMktC)} ${bestMktC}</strong>. Best placement eCPM: <strong>${PL[bestPlC]||bestPlC}</strong>. Revive-ads: <strong>${pl('ShadowFall_Revive')}×</strong>.`);
-
         setHTML('ads-k1',kpi('a',`Users with Ads`,uWithAds,`of ${new Set(evs.map(e=>e.user_pseudo_id)).size} active users`)+
             kpi('g',`Rewarded Impressions`,`<span style="color:var(--green)">${rw.length}</span>`,`eCPM ∅ ${ecpm(ecpmR)}`)+
             kpi('y',`Interstitial Impressions`,`<span style="color:var(--yellow)">${it.length}</span>`,`eCPM ∅ ${ecpm(ecpmI)}`)+
             kpi('g',`Total Revenue`,`<span style="color:var(--green);font-size:20px">${usd(trv)}</span>`,`USD`));
-
         setHTML('ads-k2',kpi('','🛡 Hero Unlock',pl('ShadowFall_Hero_Unlock'),'ShadowFall_Hero_Unlock')+
             kpi('r','💀 Revive via Ad',pl('ShadowFall_Revive'),'ShadowFall_Revive')+
             kpi('','💎 Gems via Ad',pl('Gems_Ads_Offer'),'Gems_Ads_Offer')+
             kpi('','🪙 Coin Doubling',pl('Coin_Doubling'),'Post-match ×2'));
-
         setHTML('ads-k3',kpi('','🃏 Scratch Card',pl('Scratch_Card'),'Scratch_Card')+
             kpi('','🏆 LB Double',pl('Leaderboard_Double_Reward'),'Leaderboard_Double_Reward')+
             kpi('','⏱ PH Moves',pl('PrismHarmony_Get_Moves_Or_Time'),'PH_Get_Moves_Or_Time'));
-
         const dayMap=grp(imps,e=>e.source_table);
         setHTML('ads-days',[...ACTIVE].sort().map(day=>{
             const di=dayMap.get(day)||[];
@@ -911,7 +983,6 @@
                 irow('eCPM Rewarded',ecpm(decpmR))+
                 (dint.length?irow('eCPM Interstitial',`<span style="color:var(--yellow)">${ecpm(decpmI)}</span>`):'')+'</div>';
         }).join(''));
-
         const rUsers=new Set(rw.map(e=>e.user_pseudo_id)).size;
         const iUsers=new Set(it.map(e=>e.user_pseudo_id)).size;
         const topPl=topPlacementBy(rw,'count');
@@ -925,7 +996,6 @@
             irow('Avg eCPM',`<strong>${ecpm(ecpmI)}</strong>`)+irow('Unique Users',iUsers)+
             irow('Avg per User',iUsers?r1(it.length/iUsers):'–')+
             irow('vs Rewarded',`<strong style="color:${ecpmI>=ecpmR?'var(--green)':'var(--red)'}">${ecpmI>=ecpmR?'≥ Rewarded':'< Rewarded'}</strong>`)+'</div>');
-
         const plStats={};
         for(const imp of imps){
             const p=imp.ad_format==='interstitial'?'':imp.placement;
@@ -941,7 +1011,6 @@
       <td class="tr tg">${usd(s.rev)}</td><td class="tr"><strong>${ecpm(ae)}</strong></td>
       <td><div class="mbar"><div class="mfill" style="background:${isI?'#f59e0b':'#6366f1'};width:${bw}%"></div></div></td></tr>`;
         }).join(''));
-
         const cStats={};
         for(const imp of imps){
             const c=imp.country||'Unknown';
@@ -955,7 +1024,6 @@
             return `<tr><td>${f(c)} ${c}</td><td class="tc">${s.u.size}</td><td class="tc">${s.r}</td><td class="tc">${s.i}</td>
       <td class="tr tg">${usd(s.rev)}</td><td class="tr"><strong>${ecpm(er)}</strong></td><td class="tr">${s.i?ecpm(ei):'–'}</td></tr>`;
         }).join(''));
-
         const nStats={};let nTot=0;
         for(const imp of imps){
             const n=imp.ad_source||'unknown';
@@ -968,7 +1036,6 @@
             return `<tr><td><strong>${n}</strong></td><td class="tc">${s.r}</td><td class="tc">${s.i}</td>
       <td class="tr tg">${usd(s.rev)}</td><td class="tr"><strong>${ecpm(ae)}</strong></td><td class="tr">${sh.toFixed(0)}%</td></tr>`;
         }).join(''));
-
         const camStats={};let camTot=0;
         for(const imp of imps){
             const cam=imp.campaign||'';const med=imp.medium||'';const src=imp.source||'';
@@ -988,7 +1055,6 @@
       <td class="tr tg">${usd(s.rev)}</td><td class="tr"><strong>${ecpm(ae)}</strong></td>
       <td class="tr">${sh.toFixed(1)}%</td></tr>`;
         }).join(''));
-
         const uMap={};
         for(const e of evs){
             const uid=e.user_pseudo_id;
@@ -1019,7 +1085,7 @@
             if(u.scratch)b+=`<span class="badge bs">${u.scratch}× Scratch</span>`;
             if(u.lb)b+=`<span class="badge bl">${u.lb}× LB</span>`;
             if(u.i)b+=`<span class="badge bi">${u.i}× Inter.</span>`;
-            return `<tr><td style="font-family:monospace;font-size:10px;color:var(--muted)">${u.uid.slice(0,14)}…</td>
+            return `<tr><td><span class="uid-link" onclick="openUserProfile('${u.uid}')" title="${u.uid}">${u.uid.slice(0,14)}…</span></td>
       <td>${f(u.country)} ${u.country}</td><td>${u.os}</td>
       <td style="font-size:11px;color:var(--muted)">${u.campaign||'–'}</td>
       <td class="tc">${u.r}</td><td class="tc">${u.i}</td>
@@ -1049,23 +1115,19 @@
             if(e.event_name==='shadow_fall_revive'){revives++;sfUsers.add(e.user_pseudo_id);}
             if(e.event_name==='shadow_fall_revive_advertisement'){revAds++;sfUsers.add(e.user_pseudo_id);}
         }
-
         if(!runs.length){
             setHTML('sf-insight','<strong>Shadow Fall:</strong> No data in selected period.');
             ['sf-k1','sf-k2','sf-funnel','sf-lvl-body','sf-hero-bars','sf-hero-body','sf-usr-body'].forEach(id=>setHTML(id,''));return;
         }
-
         const comps=runs.filter(r=>r.done);
         const cr=runs.length?comps.length/runs.length*100:0;
         const avgScore=avg(runs,r=>r.score);const avgDur=avg(runs,r=>r.dur);
         const avgRev=avg(runs,r=>r.rev);
         const mostPlayed=mostPlayedLevel(runs);
-
         setHTML('sf-insight',`<strong>⚔️ Shadow Fall:</strong> ${sfUsers.size} players, ${runs.length} runs — `+
             `Completion rate: <strong>${cr.toFixed(1)}%</strong>. `+
             `Avg score: <strong>${r0(avgScore)}</strong>, avg duration: <strong>${r0(avgDur)}s</strong>. `+
             `Death→Revive-Ad rate: <strong>${pct(revAds,deaths)}</strong>. Most played: <strong>${mostPlayed}</strong>.`);
-
         setHTML('sf-k1',kpi('','Active Players',sfUsers.size,'unique users')+
             kpi('','Total Runs',runs.length,`${comps.length} completed / ${runs.length-comps.length} failed`)+
             kpi('g','Completion Rate',`<span style="color:var(--green)">${cr.toFixed(1)}%</span>`,`of all runs`)+
@@ -1074,14 +1136,12 @@
             kpi('','Avg Revives/Run',avgRev.toFixed(2),'')+
             kpi('r','Total Deaths',deaths,'shadow_fall_death events')+
             kpi('y','Revive-Ad Rate',`<span style="color:var(--yellow)">${pct(revAds,deaths)}</span>`,`${revAds} of ${deaths} deaths`));
-
         const maxF=Math.max(runs.length,deaths,revAds,comps.length,1);
         setHTML('sf-funnel',
             funnelStep('Stages played',runs.length,maxF,'#6366f1')+
             funnelStep('Player dies',deaths,maxF,'#f87171')+
             funnelStep('Revive-Ad shown',revAds,maxF,'#f59e0b')+
             funnelStep('Stage completed',comps.length,maxF,'#22c55e'));
-
         const lvlMap={};
         for(const r of runs){const l=r.lvl;if(!lvlMap[l])lvlMap[l]={all:[],comps:[],fails:[]};
             lvlMap[l].all.push(r);if(r.done)lvlMap[l].comps.push(r);else lvlMap[l].fails.push(r);}
@@ -1096,7 +1156,6 @@
       <td class="tr">${avg(s.all,r=>r.rev).toFixed(2)}</td>
       <td class="tr">${s.comps.length?r0(avg(s.comps,r=>r.coins)):'–'}</td></tr>`;
         }).join(''));
-
         const heroEntries=Object.entries(heroMap).sort((a,b)=>b[1].runs.length-a[1].runs.length);
         const maxH=Math.max(...heroEntries.map(([,h])=>h.runs.length),1);
         setHTML('sf-hero-bars',heroEntries.map(([hid,h])=>{
@@ -1118,7 +1177,6 @@
       <td class="tr">${r0(avg(h.runs,r=>r.dur))}s</td>
       <td class="tc ${cc}">${crv.toFixed(1)}%</td></tr>`;
         }).join(''));
-
         const uSF={};
         for(const e of evs){
             const uid=e.user_pseudo_id;
@@ -1135,7 +1193,7 @@
             const cc=crv>=60?'tg':crv>=40?'ty':'tb';
             const heroCnt={};for(const r of u.runs)heroCnt[r.hero]=(heroCnt[r.hero]||0)+1;
             const favH=Object.entries(heroCnt).sort((a,b)=>b[1]-a[1])[0]?.[0]??'–';
-            return `<tr><td style="font-family:monospace;font-size:10px;color:var(--muted)">${u.uid.slice(0,14)}…</td>
+            return `<tr><td><span class="uid-link" onclick="openUserProfile('${u.uid}')" title="${u.uid}">${u.uid.slice(0,14)}…</span></td>
       <td>${f(u.country)} ${u.country}</td>
       <td class="tc">${u.runs.length}</td><td class="tc tg">${comps2.length}</td>
       <td class="tc ${cc}">${crv.toFixed(1)}%</td>
@@ -1173,12 +1231,10 @@
         const s3=comps.filter(r=>r.stars>=3).length;
         const s2=comps.filter(r=>r.stars>=2&&r.stars<3).length;
         const s1=comps.filter(r=>r.stars<2&&r.stars>0).length;
-
         setHTML('ph-insight',`<strong>🎵 Prism Harmony:</strong> ${phUsers.size} players, ${runs.length} runs — `+
             `Completion: <strong>${cr.toFixed(1)}%</strong>, Exit rate: <strong>${exitR.toFixed(1)}%</strong>. `+
             `Avg stars on completion: <strong>${avgStar.toFixed(2)}</strong>. `+
             `${pct(s3,comps.length)} of completions with 3 stars.`);
-
         setHTML('ph-k1',kpi('','Active Players',phUsers.size,'unique users')+
             kpi('','Total Runs',runs.length,`${comps.length} done / ${fails.length} fail / ${exits.length} exit`)+
             kpi('g','Completion Rate',`<span style="color:var(--green)">${cr.toFixed(1)}%</span>`,'')+
@@ -1186,14 +1242,12 @@
         setHTML('ph-k2',kpi('','Avg Score',r0(avg(runs,r=>r.score)),'per run')+
             kpi('','Avg Duration',`${r0(avg(runs,r=>r.dur))}s`,'per run')+
             kpi('','Avg Stars (completed)',`<span style="color:#34d399">${avgStar.toFixed(2)}</span>`,'of 3 possible'));
-
         const maxFph=Math.max(runs.length,comps.length,fails.length,exits.length,1);
         setHTML('ph-funnel',
             funnelStep('Level started',runs.length,maxFph,'#6366f1')+
             funnelStep('Completed ✓',comps.length,maxFph,'#22c55e')+
             funnelStep('Failed ✗',fails.length,maxFph,'#ef4444')+
             funnelStep('Abandoned',exits.length,maxFph,'#f59e0b'));
-
         const lvlPH={};
         for(const r of runs){const l=r.lvl;if(!lvlPH[l])lvlPH[l]={all:[],done:[],fail:[],exit:[]};
             lvlPH[l].all.push(r);lvlPH[l][r.result].push(r);}
@@ -1207,7 +1261,6 @@
       <td class="tr">${r0(avg(s.all,r=>r.dur))}s</td>
       <td class="tc"><span class="stars">${'⭐'.repeat(Math.max(0,Math.round(as2)))}</span> ${as2.toFixed(1)}</td></tr>`;
         }).join(''));
-
         const maxStar=Math.max(s3,s2,s1,1);
         setHTML('ph-stars',
             barStep('⭐⭐⭐ Perfect (3)',s3,maxStar,'#22c55e',pct(s3,comps.length))+
@@ -1219,7 +1272,6 @@
             irow('Longest completion',comps.length?Math.max(...comps.map(r=>r.dur)).toFixed(0)+'s':'–')+
             irow('3-star rate',pct(s3,comps.length))+
             irow('Exit rate',pct(exits.length,runs.length)));
-
         const uPH={};
         for(const r of runs){
             if(!uPH[r.uid])uPH[r.uid]={uid:r.uid,country:r.country,runs:[],done:[],exits:[]};
@@ -1230,7 +1282,7 @@
         setHTML('ph-usr-body',Object.values(uPH).sort((a,b)=>b.runs.length-a.runs.length).map(u=>{
             const crv=u.runs.length?u.done.length/u.runs.length*100:0;const cc=crv>=60?'tg':crv>=40?'ty':'tb';
             const as2=avg(u.done,r=>r.stars);
-            return `<tr><td style="font-family:monospace;font-size:10px;color:var(--muted)">${u.uid.slice(0,14)}…</td>
+            return `<tr><td><span class="uid-link" onclick="openUserProfile('${u.uid}')" title="${u.uid}">${u.uid.slice(0,14)}…</span></td>
       <td>${f(u.country)} ${u.country}</td>
       <td class="tc">${u.runs.length}</td><td class="tc tg">${u.done.length}</td>
       <td class="tc ${cc}">${crv.toFixed(1)}%</td>
@@ -1267,14 +1319,12 @@
             }
         }
         const rows=Object.entries(cMap).sort((a,b)=>b[1].rev-a[1].rev);
-
         setHTML('mkt-insight',`<strong>🌍 Market Insight:</strong> `+
             rows.slice(0,3).map(([c,cs])=>{
                 const er=cs.rrev&&cs.imps.filter(i=>i.ad_format==='rewarded_video').length?cs.rrev/cs.imps.filter(i=>i.ad_format==='rewarded_video').length*1000:0;
                 const sfCr=cs.sfRuns.length?pct(cs.sfRuns.filter(r=>r.done).length,cs.sfRuns.length):'n/a';
                 return `<strong>${f(c)} ${c}</strong>: eCPM ${ecpm(er)}, SF comp ${sfCr}`;
             }).join(' · '));
-
         setHTML('mkt-body',rows.map(([c,cs])=>{
             const sfComps=cs.sfRuns.filter(r=>r.done);
             const sfCrv=cs.sfRuns.length?sfComps.length/cs.sfRuns.length*100:0;const sfCC=sfCrv>=60?'tg':sfCrv>=40?'ty':'tb';
@@ -1294,7 +1344,6 @@
       <td class="tr tg">${usd(cs.rev)}</td>
       <td class="tr"><strong>${ecpm(er)}</strong></td></tr>`;
         }).join(''));
-
         setHTML('mkt-cards',`<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">`+
             rows.slice(0,4).map(([c,cs])=>{
                 const sfComps=cs.sfRuns.filter(r=>r.done);const phComps=cs.phRuns.filter(r=>r.done);
@@ -1307,7 +1356,6 @@
           ${miniKpi('PH Comp.',cs.phRuns.length?pct(phComps.length,cs.phRuns.length):'n/a','#34d399')}
         </div></div>`;
             }).join('')+'</div>');
-
         setHTML('mkt-death-body',rows.map(([c,cs])=>{
             const revRev=cs.revImpEcpms.reduce((s,v)=>s+v/1000,0);
             const revEcpm=cs.revImpEcpms.length?avg(cs.revImpEcpms):0;
@@ -1325,7 +1373,6 @@
     function renderOnboarding(evs=ALL){
         const firstOpens=evs.filter(e=>e.event_name==='first_open');
         const totalFO=new Set(firstOpens.map(e=>e.user_pseudo_id)).size;
-
         const tutEvs=evs.filter(e=>e.event_name==='tutorial_step_completed');
         const tutStepUsers={};
         for(const e of tutEvs){
@@ -1336,7 +1383,6 @@
         const startedTut=(tutStepUsers['MinigameSelection']||new Set()).size;
         const completedTut=(tutStepUsers['LastStep']||new Set()).size;
         const tutCR=startedTut?pct(completedTut,startedTut):'–';
-
         const bsEvs=evs.filter(e=>e.event_name==='bootstrap_initialization_step_completed');
         const bsMap={};
         for(const e of bsEvs){
@@ -1346,28 +1392,23 @@
             if(String(e.initialization_step_succeeded)==='0')bsMap[s].fail++;else bsMap[s].succ++;
             bsMap[s].users.add(e.user_pseudo_id);
         }
-
         const coreSteps=Object.entries(bsMap).filter(([,s])=>{
             const tot=s.succ+s.fail;return tot&&s.fail/tot<0.9;
         });
         const totalBSms=coreSteps.reduce((sum,[,s])=>sum+avg(s.durs),0);
-
         const mostFailed=Object.entries(bsMap).filter(([,s])=>s.succ+s.fail>0&&(s.fail/(s.succ+s.fail))<0.9)
             .sort((a,b)=>(b[1].fail/(b[1].succ+b[1].fail))-(a[1].fail/(a[1].succ+a[1].fail)))[0];
         const slowest=coreSteps.sort((a,b)=>avg(b[1].durs)-avg(a[1].durs))[0];
-
         setHTML('ob-insight',`<strong>🚀 Onboarding:</strong> `+
             `<strong>${totalFO.toLocaleString()}</strong> first opens. `+
             `Tutorial started: <strong>${startedTut}</strong>, completed (LastStep): <strong>${completedTut}</strong> (<strong>${tutCR}</strong>). `+
             (mostFailed?`Highest fail rate: <strong>${mostFailed[0]}</strong> (${(mostFailed[1].fail/(mostFailed[1].succ+mostFailed[1].fail)*100).toFixed(0)}%). `:'') +
             `Total bootstrap time (core steps): <strong>~${(totalBSms/1000).toFixed(1)}s</strong>.`);
-
         setHTML('ob-k1',
             kpi('c','First Opens',totalFO,'unique users')+
             kpi('','Tutorial Started',startedTut,'reached MinigameSelection')+
             kpi('g','Tutorial Completed',completedTut,'reached LastStep')+
             kpi('a','Completion Rate',tutCR,'LastStep / MinigameSelection'));
-
         const mfName=mostFailed?mostFailed[0]:'–';
         const mfPct=mostFailed?(mostFailed[1].fail/(mostFailed[1].succ+mostFailed[1].fail)*100).toFixed(1)+'%':'–';
         const slName=slowest?slowest[0]:'–';
@@ -1377,7 +1418,6 @@
             kpi('r','Most Failed Step',mfName,`${mfPct} fail rate`)+
             kpi('','Slowest Step',slName,`avg ${slMs}`)+
             kpi('','Bootstrap Events',bsEvs.length,'total invocations'));
-
         const maxBSdur=Math.max(...Object.values(bsMap).map(s=>avg(s.durs)),1);
         const ordered=[...BOOTSTRAP_ORDER,...Object.keys(bsMap).filter(k=>!BOOTSTRAP_ORDER.includes(k))];
         setHTML('ob-bootstrap',`<div style="margin-bottom:20px">`+
@@ -1401,7 +1441,6 @@
         <span style="font-size:11px;width:110px;flex-shrink:0">${failLabel} | ${tot} inv. | ${s.users.size} users</span>
       </div>`;
             }).join('')+'</div>');
-
         const first=(tutStepUsers[TUTORIAL_ORDER[0]]||new Set()).size||1;
         const maxTut=Math.max(first,1);
         let prevN=maxTut;
@@ -1429,30 +1468,25 @@
     function renderRemoval(evs=ALL){
         const rmEvs=evs.filter(e=>e.event_name==='app_remove');
         const total=rmEvs.length;
-
         const tutUsers=new Set(evs.filter(e=>e.event_name==='tutorial_step_completed').map(e=>e.user_pseudo_id));
         const sfUsers=new Set(evs.filter(e=>e.event_name==='shadow_fall_stage_completed'||e.event_name==='shadow_fall_stage_failed').map(e=>e.user_pseudo_id));
         const phUsers=new Set(evs.filter(e=>e.event_name==='prism_harmony_level_completed'||e.event_name==='prism_harmony_level_failed'||e.event_name==='prism_harmony_level_exit').map(e=>e.user_pseudo_id));
         const adUsers=new Set(evs.filter(e=>e.event_name==='ad_impression').map(e=>e.user_pseudo_id));
-
         const rmUIDs=new Set(rmEvs.map(e=>e.user_pseudo_id));
         const s1=rmEvs.filter(e=>(parseFloat(e.ga_session_number)||0)<=1).length;
         const withTut=[...rmUIDs].filter(u=>tutUsers.has(u)).length;
         const withGame=[...rmUIDs].filter(u=>sfUsers.has(u)||phUsers.has(u)).length;
         const withAd=[...rmUIDs].filter(u=>adUsers.has(u)).length;
-
         setHTML('rm-insight',`<strong>🗑️ App Removal:</strong> `+
             `<strong>${total.toLocaleString()}</strong> removals in dataset. `+
             `<strong>${pct(s1,total)}</strong> churned after just 1 session. `+
             `Only <strong>${pct(withTut,total)}</strong> had any tutorial interaction. `+
             `<strong>${pct(withGame,total)}</strong> played at least one game before leaving.`);
-
         setHTML('rm-k1',
             kpi('r','Total Removals',total.toLocaleString(),'')+
             kpi('r','Removed at Session 1',pct(s1,total),`${s1} of ${total} users`)+
             kpi('y','Had Tutorial Interaction',pct(withTut,total),`${withTut} users`)+
             kpi('c','Played Any Game',pct(withGame,total),`${withGame} users`));
-
         const buckets=[
             {label:'Session 1 — immediate churn',min:0,max:1},
             {label:'Sessions 2–3',min:2,max:3},
@@ -1463,18 +1497,15 @@
         const bData=buckets.map(b=>({...b,n:rmEvs.filter(e=>{const s=parseFloat(e.ga_session_number)||0;return s>=b.min&&s<=b.max;}).length}));
         const maxB=Math.max(...bData.map(b=>b.n),1);
         setHTML('rm-sessions',bData.map(b=>barStep(b.label,b.n,maxB,'#ef4444',pct(b.n,total))).join(''));
-
         const dayGrp=grp(rmEvs,e=>e.source_table);
         const dayData=[...dayGrp].map(([d,r])=>({d,n:r.length})).sort((a,b)=>b.n-a.n);
         const maxDay=Math.max(...dayData.map(d=>d.n),1);
         setHTML('rm-byDay',dayData.map(d=>barStep(fday(d.d),d.n,maxDay,'#fb923c',pct(d.n,total))).join(''));
-
         const scGrp=grp(rmEvs,e=>e.firebase_screen_class||'Unknown');
         const scData=[...scGrp].map(([sc,r])=>{
             const label=sc==='UnityPlayerActivity'?'In-Game (UnityPlayerActivity)':sc==='LicenseActivity'?'EULA/Legal Screen':sc==='AdActivity'?'Ad Screen':sc;
             return{label,n:r.length};}).sort((a,b)=>b.n-a.n);
         setHTML('rm-screen-body',scData.map(d=>`<tr><td>${d.label}</td><td class="tr">${d.n}</td><td class="tr">${pct(d.n,total)}</td></tr>`).join(''));
-
         const behData=[
             {label:'Completed any tutorial step',n:withTut},
             {label:'Played Shadow Fall',n:[...rmUIDs].filter(u=>sfUsers.has(u)).length},
@@ -1483,7 +1514,6 @@
         ];
         const maxBeh=Math.max(...behData.map(b=>b.n),1);
         setHTML('rm-behavior',behData.map(b=>barStep(b.label,b.n,maxBeh,'#22d3ee',pct(b.n,total))).join(''));
-
         const tutEvsByRmr=evs.filter(e=>e.event_name==='tutorial_step_completed'&&rmUIDs.has(e.user_pseudo_id));
         const farthestCnt={};
         for(const uid of rmUIDs){
@@ -1493,9 +1523,8 @@
             farthestCnt[farthest]=(farthestCnt[farthest]||0)+1;
         }
         const fData=Object.entries(farthestCnt).sort((a,b)=>b[1]-a[1]);
-        const maxF=Math.max(...fData.map(d=>d[1]),1);
-        setHTML('rm-tut-steps',fData.map(([step,n])=>barStep(step,n,maxF,'#6366f1',pct(n,total))).join(''));
-
+        const maxF2=Math.max(...fData.map(d=>d[1]),1);
+        setHTML('rm-tut-steps',fData.map(([step,n])=>barStep(step,n,maxF2,'#6366f1',pct(n,total))).join(''));
         const cGrp=grp(rmEvs,e=>e.country||'Unknown');
         const cData=[...cGrp].map(([c,rows])=>{
             const n=rows.length;
@@ -1507,6 +1536,225 @@
         setHTML('rm-country-body',cData.map(d=>`<tr>
     <td>${f(d.c)} ${d.c}</td><td class="tr">${d.n}</td>
     <td class="tr">${d.s1pct}</td><td class="tr">${d.tutPct}</td><td class="tr">${d.gamePct}</td></tr>`).join(''));
+    }
+
+    // ════════════════════════════════════════════════════════════════════════════
+    // TAB: ANALYTICS (Retention + Play Time)
+    // ════════════════════════════════════════════════════════════════════════════
+    function renderAnalytics(evs){
+        // ── Build install dates from first_open (across ALL data) ──────────────
+        const userInstall={};
+        for(const e of ALL){
+            const dt=e.source_table||'';
+            if(dt.length<8)continue; // skip empty/invalid dates
+            if(e.event_name==='first_open'){
+                const uid=e.user_pseudo_id;
+                if(!userInstall[uid]||dt<userInstall[uid])userInstall[uid]=dt;
+            }
+        }
+        // Fallback: earliest event date for users without first_open
+        for(const e of ALL){
+            const uid=e.user_pseudo_id;
+            const dt=e.source_table||'';
+            if(dt.length<8)continue; // skip empty/invalid dates
+            if(!userInstall[uid]||dt<userInstall[uid])userInstall[uid]=dt;
+        }
+        // ── Build active days per user (ALL data for cross-period retention) ──
+        const userAllDays={};
+        for(const e of ALL){
+            const uid=e.user_pseudo_id;
+            const dt=e.source_table||'';
+            if(dt.length<8)continue; // skip empty/invalid dates
+            if(!userAllDays[uid])userAllDays[uid]=new Set();
+            userAllDays[uid].add(dt);
+        }
+        // ── Per-user metadata from filtered events ─────────────────────────────
+        const userCam={},userCtr={},userEngMs={};
+        const activeGameUsers=new Set();
+        for(const e of evs){
+            const uid=e.user_pseudo_id;
+            if(e.campaign&&!userCam[uid])userCam[uid]=e.campaign;
+            if(e.country&&!userCtr[uid])userCtr[uid]=e.country;
+            if(e.event_name==='user_engagement'&&e.engagement_time_msec){
+                userEngMs[uid]=(userEngMs[uid]||0)+(parseFloat(e.engagement_time_msec)||0);
+            }
+            if(e.event_name==='shadow_fall_stage_completed'||e.event_name==='shadow_fall_stage_failed'||
+                e.event_name==='prism_harmony_level_completed'||e.event_name==='prism_harmony_level_failed'||
+                e.event_name==='prism_harmony_level_exit'){
+                activeGameUsers.add(uid);
+            }
+        }
+        // ── Date arithmetic helper ─────────────────────────────────────────────
+        function addDays(yyyymmdd,n){
+            if(!yyyymmdd||yyyymmdd.length<8)return '';
+            const d=new Date(yyyymmdd.slice(0,4)+'-'+yyyymmdd.slice(4,6)+'-'+yyyymmdd.slice(6,8)+'T12:00:00Z');
+            if(isNaN(d.getTime()))return '';
+            d.setUTCDate(d.getUTCDate()+n);
+            return d.toISOString().slice(0,10).replace(/-/g,'');
+        }
+        const RET_DAYS=[1,2,3,5,7,14,30];
+        // ── Cohort: filtered users who have a valid 8-digit install date ────────
+        const filteredUIDs=new Set(evs.map(e=>e.user_pseudo_id));
+        const cohortUsers=[...filteredUIDs].filter(uid=>userInstall[uid]&&userInstall[uid].length>=8);
+        const cohortSize=cohortUsers.length;
+        // ── Overall retention rates ────────────────────────────────────────────
+        const retRates={};
+        for(const n of RET_DAYS){
+            const returned=cohortUsers.filter(uid=>{
+                const target=addDays(userInstall[uid],n);
+                return userAllDays[uid]?.has(target);
+            }).length;
+            retRates[n]=cohortSize>0?returned/cohortSize:0;
+        }
+        const hasRetData=RET_DAYS.some(n=>retRates[n]>0);
+        // ── Play time ─────────────────────────────────────────────────────────
+        const activeArr=[...activeGameUsers].map(uid=>(userEngMs[uid]||0)/60000);
+        const avgPlayMin=activeArr.length?activeArr.reduce((a,b)=>a+b,0)/activeArr.length:0;
+        const sortedPlay=[...activeArr].sort((a,b)=>a-b);
+        const medianPlay=sortedPlay.length?sortedPlay[Math.floor(sortedPlay.length/2)]:0;
+        const maxPlay=sortedPlay.length?sortedPlay[sortedPlay.length-1]:0;
+        // ── Insight ───────────────────────────────────────────────────────────
+        setHTML('an-insight',`<strong>📈 Analytics:</strong> `+
+            (hasRetData
+                ?`Cohort: <strong>${cohortSize}</strong> users. R1: <strong>${(retRates[1]*100).toFixed(1)}%</strong>, R7: <strong>${(retRates[7]*100).toFixed(1)}%</strong>, R30: <strong>${(retRates[30]*100).toFixed(1)}%</strong>. `
+                :`<strong>Multiple days of data required for retention values.</strong> Load files from different days. `)+
+            `Active players: <strong>${activeGameUsers.size}</strong>, avg engagement: <strong>${avgPlayMin.toFixed(1)} min</strong>.`);
+        const noteEl=$('an-note');
+        if(noteEl)noteEl.style.display=hasRetData?'none':'block';
+        // ── Retention KPIs – alle 7 Tage + Kohorte in 2 Reihen ─────────────────
+        function retColor(r){return r>0.4?'var(--green)':r>0.2?'var(--yellow)':r>0?'var(--red)':'var(--muted)';}
+        function retKpi(label,n,sub){
+            const r=retRates[n];const pctStr=(r*100).toFixed(1)+'%';
+            const cls=r>0.4?'g':r>0.2?'y':r>0?'r':'';
+            return kpi(cls,label,`<span style="color:${retColor(r)}">${pctStr}</span>`,sub);
+        }
+        setHTML('an-ret-kpis',
+            `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px">`+
+            kpi('c','Cohort',cohortSize,'users with install date')+
+            retKpi('R1 – Day 1',1,'next day')+
+            retKpi('R2 – Day 2',2,'after 2 days')+
+            retKpi('R3 – Day 3',3,'after 3 days')+
+            `</div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px">`+
+            retKpi('R5 – Day 5',5,'after 5 days')+
+            retKpi('R7 – Day 7',7,'after 1 week')+
+            retKpi('R14 – Day 14',14,'after 2 weeks')+
+            retKpi('R30 – Day 30',30,'after 1 month')+
+            `</div>`);
+        // ── Retention bar chart ───────────────────────────────────────────────
+        const maxRate=Math.max(...RET_DAYS.map(n=>retRates[n]),0.001);
+        const CHART_H=160;
+        const TOP_PAD=34;  // extra space above tallest bar for % label
+        const bars=RET_DAYS.map(n=>{
+            const rate=retRates[n];
+            const h=Math.round(rate/maxRate*CHART_H);
+            const color=n<=3?'#22d3ee':n<=7?'#6366f1':'#a78bfa';
+            return{n,rate,h,color};
+        });
+        const barW=Math.floor(560/RET_DAYS.length)-8;
+        let svgBars='';
+        bars.forEach((b,i)=>{
+            const x=30+i*(barW+8);
+            const y=CHART_H-b.h+TOP_PAD;
+            const pctTxt=(b.rate*100).toFixed(1)+'%';
+            svgBars+=`<rect x="${x}" y="${y}" width="${barW}" height="${b.h}" fill="${b.color}" rx="4" opacity="0.85"/>`;
+            if(b.h>0)svgBars+=`<text x="${x+barW/2}" y="${y-7}" text-anchor="middle" font-size="11" fill="#e2e8f0" font-weight="700">${pctTxt}</text>`;
+            svgBars+=`<text x="${x+barW/2}" y="${CHART_H+TOP_PAD+22}" text-anchor="middle" font-size="12" fill="#94a3b8" font-weight="600">D${b.n}</text>`;
+        });
+        // Grid lines
+        let gridLines='';
+        [25,50,75,100].forEach(pctG=>{
+            const y2=CHART_H+TOP_PAD-Math.round(pctG/100*CHART_H);
+            gridLines+=`<line x1="20" y1="${y2}" x2="590" y2="${y2}" stroke="#334155" stroke-width="1" stroke-dasharray="4,3"/>`;
+            gridLines+=`<text x="16" y="${y2+4}" text-anchor="end" font-size="10" fill="#475569">${pctG}%</text>`;
+        });
+        setHTML('an-ret-chart',`<div class="ret-chart-wrap">
+            <h3>📊 Retention Curve — D1 bis D30</h3>
+            <div style="overflow-x:auto">
+            <svg viewBox="0 0 620 ${CHART_H+TOP_PAD+42}" style="width:100%;max-width:700px;height:auto">
+                ${gridLines}${svgBars}
+            </svg></div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">
+                <span style="color:#22d3ee">■</span> D1–D3 &nbsp;
+                <span style="color:#6366f1">■</span> D5–D7 &nbsp;
+                <span style="color:#a78bfa">■</span> D14–D30
+            </div></div>`);
+        // ── Retention by campaign ─────────────────────────────────────────────
+        const camRetMap={};
+        for(const uid of cohortUsers){
+            const cam=userCam[uid]||'';
+            if(!camRetMap[cam])camRetMap[cam]={size:0,ret:{}};
+            camRetMap[cam].size++;
+            for(const n of RET_DAYS){
+                const target=addDays(userInstall[uid],n);
+                if(userAllDays[uid]?.has(target))camRetMap[cam].ret[n]=(camRetMap[cam].ret[n]||0)+1;
+            }
+        }
+        setHTML('an-ret-cam-body',Object.entries(camRetMap).sort((a,b)=>b[1].size-a[1].size).map(([cam,cs])=>{
+            const lbl=cam||'<span style="color:var(--muted)">(organic)</span>';
+            const cells=RET_DAYS.map(n=>{
+                const r=cs.size>0?(cs.ret[n]||0)/cs.size*100:0;
+                const cl=r>40?'tg':r>20?'ty':r>0?'tb':'';
+                return`<td class="tc ${cl}">${r>0?r.toFixed(1)+'%':'–'}</td>`;
+            }).join('');
+            return`<tr><td><strong>${lbl}</strong></td><td class="tc">${cs.size}</td>${cells}</tr>`;
+        }).join(''));
+        // ── Retention by country ──────────────────────────────────────────────
+        const ctrRetMap={};
+        for(const uid of cohortUsers){
+            const ctr=userCtr[uid]||'Unknown';
+            if(!ctrRetMap[ctr])ctrRetMap[ctr]={size:0,ret:{}};
+            ctrRetMap[ctr].size++;
+            for(const n of RET_DAYS){
+                const target=addDays(userInstall[uid],n);
+                if(userAllDays[uid]?.has(target))ctrRetMap[ctr].ret[n]=(ctrRetMap[ctr].ret[n]||0)+1;
+            }
+        }
+        setHTML('an-ret-ctr-body',Object.entries(ctrRetMap).sort((a,b)=>b[1].size-a[1].size).map(([ctr,cs])=>{
+            const cells=RET_DAYS.map(n=>{
+                const r=cs.size>0?(cs.ret[n]||0)/cs.size*100:0;
+                const cl=r>40?'tg':r>20?'ty':r>0?'tb':'';
+                return`<td class="tc ${cl}">${r>0?r.toFixed(1)+'%':'–'}</td>`;
+            }).join('');
+            return`<tr><td>${f(ctr)} <strong>${ctr}</strong></td><td class="tc">${cs.size}</td>${cells}</tr>`;
+        }).join(''));
+        // ── Play time KPIs ────────────────────────────────────────────────────
+        setHTML('an-play-kpis',
+            kpi('g','Avg Play Time',`${avgPlayMin.toFixed(1)} min`,`${activeGameUsers.size} active players`)+
+            kpi('','Median Play Time',`${medianPlay.toFixed(1)} min`,'median value')+
+            kpi('a','Max Play Time',`${maxPlay.toFixed(1)} min`,'highest single value'));
+        // ── Play time by campaign ─────────────────────────────────────────────
+        const camPlayMap={};
+        for(const uid of activeGameUsers){
+            const cam=userCam[uid]||'';
+            if(!camPlayMap[cam])camPlayMap[cam]={users:0,totalMin:0};
+            camPlayMap[cam].users++;
+            camPlayMap[cam].totalMin+=(userEngMs[uid]||0)/60000;
+        }
+        setHTML('an-play-cam-body',Object.entries(camPlayMap)
+            .sort((a,b)=>(b[1].users>0?b[1].totalMin/b[1].users:0)-(a[1].users>0?a[1].totalMin/a[1].users:0))
+            .map(([cam,cs])=>{
+                const avgM=cs.users>0?cs.totalMin/cs.users:0;
+                const lbl=cam||'<span style="color:var(--muted)">(organic)</span>';
+                return`<tr><td><strong>${lbl}</strong></td><td class="tc">${cs.users}</td>
+                    <td class="tr"><strong>${avgM.toFixed(1)} min</strong></td>
+                    <td class="tr">${cs.totalMin.toFixed(0)} min</td></tr>`;
+            }).join(''));
+        // ── Play time by country ──────────────────────────────────────────────
+        const ctrPlayMap={};
+        for(const uid of activeGameUsers){
+            const ctr=userCtr[uid]||'Unknown';
+            if(!ctrPlayMap[ctr])ctrPlayMap[ctr]={users:0,totalMin:0};
+            ctrPlayMap[ctr].users++;
+            ctrPlayMap[ctr].totalMin+=(userEngMs[uid]||0)/60000;
+        }
+        setHTML('an-play-ctr-body',Object.entries(ctrPlayMap)
+            .sort((a,b)=>b[1].users-a[1].users)
+            .map(([ctr,cs])=>{
+                const avgM=cs.users>0?cs.totalMin/cs.users:0;
+                return`<tr><td>${f(ctr)} <strong>${ctr}</strong></td><td class="tc">${cs.users}</td>
+                    <td class="tr"><strong>${avgM.toFixed(1)} min</strong></td>
+                    <td class="tr">${cs.totalMin.toFixed(0)} min</td></tr>`;
+            }).join(''));
     }
 
     // ── UI helpers ────────────────────────────────────────────────────────────────
@@ -1538,7 +1786,7 @@
     }
     function mostPlayedLevel(runs){
         const g={};for(const r of runs)g[r.lvl]=(g[r.lvl]||0)+1;
-        const e=Object.entries(g).sort((a,b)=>b[1]-a[1])[0];return e?'Level '+e[0]+' ('+e[1]+'×)':'--';
+        const e=Object.entries(g).sort((a,b)=>b[1]-a[1])[0];return e?'Level '+e[0]+' ('+e[1]+'x)':'--';
     }
 
     function resetAll(){
@@ -1547,10 +1795,445 @@
         $('upload-zone').style.display='block';
         $('file-input').value='';
         $('file-list').innerHTML='';
-        $('ver-chips').innerHTML='';
-        $('cam-chips').innerHTML='';
+        $('fbar').style.display='none';
+        ['fsel-day','fsel-ver','fsel-cam','fsel-ctr','fdi-day','fdi-ver','fdi-cam','fdi-ctr'].forEach(id=>{const el=$(id);if(el)el.innerHTML='';});
+        ['fb-day','fb-ver','fb-cam','fb-ctr'].forEach(id=>{const el=$(id);if(el)el.classList.remove('active');});
         dbSet('gad_state',null).catch(()=>{});
     }
+    // ════════════════════════════════════════════════════════════════════════════
+    // TAB: PLAYERS
+    // ════════════════════════════════════════════════════════════════════════════
+    let _plData=[];
+    let _plSortKey='ltv';
+    let _plSortAsc=false;
+
+    function renderPlayers(evs){
+        if(!evs.length){
+            setHTML('pl-insight','');
+            setHTML('pl-kpis','');
+            setHTML('pl-body','<tr><td colspan="11" style="text-align:center;color:var(--muted);padding:24px">No data loaded</td></tr>');
+            return;
+        }
+        // Users who have uninstalled (from ALL data – not filtered)
+        const removedUIDs=new Set(ALL.filter(e=>e.event_name==='app_remove').map(e=>e.user_pseudo_id));
+
+        // Build per-user profile from filtered events
+        const uMap={};
+        for(const e of evs){
+            const uid=e.user_pseudo_id;
+            if(!uid||removedUIDs.has(uid))continue;
+            if(!uMap[uid])uMap[uid]={
+                uid,country:e.country||'Unknown',ver:e.app_version||'–',
+                campaign:e.campaign||'',os:e.os||'',
+                days:new Set(),firstDay:'',lastDay:'',
+                eng:0,sfRuns:0,phRuns:0,ads:0,rewarded:0,ltv:0
+            };
+            const u=uMap[uid];
+            if(e.source_table){u.days.add(e.source_table);if(!u.lastDay||e.source_table>u.lastDay)u.lastDay=e.source_table;if(!u.firstDay||e.source_table<u.firstDay)u.firstDay=e.source_table;}
+            if(e.app_version)u.ver=e.app_version;
+            if(e.country)u.country=e.country;
+            if(e.event_name==='user_engagement'&&e.engagement_time_msec)u.eng+=(parseFloat(e.engagement_time_msec)||0);
+            if(e.event_name==='shadow_fall_stage_completed'||e.event_name==='shadow_fall_stage_failed')u.sfRuns++;
+            if(['prism_harmony_level_completed','prism_harmony_level_failed','prism_harmony_level_exit'].includes(e.event_name))u.phRuns++;
+            if(e.event_name==='ad_impression'){u.ads++;if(e.ad_format==='rewarded_video')u.rewarded++;u.ltv+=(parseFloat(e.value)||0);}
+        }
+        _plData=Object.values(uMap).map(u=>({...u,days:u.days.size,eng:u.eng/60000}));
+
+        // KPIs
+        const total=_plData.length;
+        const champs=_plData.filter(u=>u.ltv>0.5||(u.eng>30&&(u.sfRuns+u.phRuns)>10)).length;
+        const avgLtv=total?_plData.reduce((s,u)=>s+u.ltv,0)/total:0;
+        const avgEng=total?_plData.reduce((s,u)=>s+u.eng,0)/total:0;
+        const withGames=_plData.filter(u=>u.sfRuns+u.phRuns>0).length;
+
+        setHTML('pl-kpis',
+            kpi('c','Active Players',total,'uninstalled users hidden')+
+            kpi('a','High-Value Players',champs,'LTV>$0.50 or power user')+
+            kpi('g','Avg LTV',usd(avgLtv),'per active player')+
+            kpi('','Players with Games',withGames,'min. 1 SF or PH run')
+        );
+
+        // Insight
+        const topLtv=_plData.slice().sort((a,b)=>b.ltv-a.ltv).slice(0,3);
+        const topLtvStr=topLtv.map(u=>`${f(u.country)} <strong>${u.uid.slice(0,10)}…</strong> (${usd(u.ltv)})`).join(' · ');
+        setHTML('pl-insight',`<strong>👥 Player Base:</strong> ${total} active players · ${champs} high-value · avg ${avgEng.toFixed(1)} min engagement · Top LTV: ${topLtvStr}`);
+
+        plRender();
+    }
+
+    function plTier(u){
+        const isChamp=u.ltv>0.5||(u.eng>30&&(u.sfRuns+u.phRuns)>10);
+        const isCore=!isChamp&&(u.ltv>0.1||u.eng>10||(u.sfRuns+u.phRuns)>3);
+        const isActive=!isChamp&&!isCore&&(u.sfRuns+u.phRuns>0||u.eng>2);
+        return isChamp?0:isCore?1:isActive?2:3;
+    }
+    function plTierBadge(tier){
+        const labels=['🏆 Champion','⭐ Core Player','🎮 Active','👤 Observer'];
+        const cls=['tier-champ','tier-core','tier-active','tier-obs'];
+        return`<span class="${cls[tier]}">${labels[tier]}</span>`;
+    }
+
+    function plSort(key){
+        if(_plSortKey===key){_plSortAsc=!_plSortAsc;}
+        else{_plSortKey=key;_plSortAsc=key==='uid'||key==='country'||key==='ver'||key==='last';}
+        // Update header classes
+        document.querySelectorAll('#pl-table th').forEach(th=>{th.classList.remove('sort-asc','sort-desc');});
+        const headers={uid:1,country:2,ver:3,days:4,last:5,eng:6,sf:7,ph:8,ads:9,ltv:10};
+        const hIdx=headers[key];
+        if(hIdx!=null){
+            const ths=document.querySelectorAll('#pl-table thead th');
+            if(ths[hIdx])ths[hIdx].classList.add(_plSortAsc?'sort-asc':'sort-desc');
+        }
+        plRender();
+    }
+
+    function plRender(){
+        if(!_plData.length)return;
+        const key=_plSortKey;const asc=_plSortAsc;
+        const sorted=_plData.slice().sort((a,b)=>{
+            const tier_a=plTier(a),tier_b=plTier(b);
+            // Primary: tier (champion first), secondary: chosen key
+            if(key==='ltv'){const d=b.ltv-a.ltv;return asc?-d:d;}
+            if(key==='eng'){const d=b.eng-a.eng;return asc?-d:d;}
+            if(key==='days'){const d=b.days-a.days;return asc?-d:d;}
+            if(key==='sf'){const d=b.sfRuns-a.sfRuns;return asc?-d:d;}
+            if(key==='ph'){const d=b.phRuns-a.phRuns;return asc?-d:d;}
+            if(key==='ads'){const d=b.ads-a.ads;return asc?-d:d;}
+            if(key==='last'){return asc?(a.lastDay||'').localeCompare(b.lastDay||''):(b.lastDay||'').localeCompare(a.lastDay||'');}
+            if(key==='uid'){return asc?a.uid.localeCompare(b.uid):b.uid.localeCompare(a.uid);}
+            if(key==='country'){return asc?(a.country||'').localeCompare(b.country||''):(b.country||'').localeCompare(a.country||'');}
+            if(key==='ver'){return asc?(a.ver||'').localeCompare(b.ver||''):(b.ver||'').localeCompare(a.ver||'');}
+            return tier_a-tier_b;
+        });
+        setHTML('pl-body',sorted.map(u=>{
+            const tier=plTier(u);
+            const engStr=u.eng>0?u.eng.toFixed(1)+' min':'–';
+            const ltvStr=u.ltv>0?usd(u.ltv):'–';
+            const ltvCls=u.ltv>0.5?'tg':u.ltv>0.1?'ty':'';
+            const engCls=u.eng>30?'tg':u.eng>10?'ty':'';
+            return`<tr>
+                <td>${plTierBadge(tier)}</td>
+                <td><span class="uid-link" onclick="openUserProfile('${u.uid}')" title="${u.uid}">${u.uid.slice(0,14)}…</span></td>
+                <td>${f(u.country)} ${u.country}</td>
+                <td style="font-size:11px;color:var(--muted)">${u.ver}</td>
+                <td class="tc">${u.days}</td>
+                <td class="tc" style="font-size:11px">${fday(u.lastDay)}</td>
+                <td class="tr ${engCls}">${engStr}</td>
+                <td class="tc">${u.sfRuns||'–'}</td>
+                <td class="tc">${u.phRuns||'–'}</td>
+                <td class="tc">${u.ads||'–'}</td>
+                <td class="tr ${ltvCls}"><strong>${ltvStr}</strong></td>
+            </tr>`;
+        }).join(''));
+    }
+
+
+    // ════════════════════════════════════════════════════════════════════════════
+    // TAB: CAMPAIGN QUALITY SCORE
+    // ════════════════════════════════════════════════════════════════════════════
+    let _cqData=[];
+    let _cqSortKey='score';
+    let _cqSortAsc=false;
+
+    function renderCampaignQuality(evs){
+        if(!evs.length){
+            setHTML('cq-insight','');setHTML('cq-kpis','');
+            setHTML('cq-body','<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:24px">No data loaded</td></tr>');
+            return;
+        }
+        // Use ALL events to get full churn picture, but only count users in filtered evs
+        const removedUIDs=new Set(ALL.filter(e=>e.event_name==='app_remove').map(e=>e.user_pseudo_id));
+
+        // Build per-user stats from filtered events
+        const uMap={};
+        for(const e of evs){
+            const uid=e.user_pseudo_id;if(!uid)continue;
+            if(!uMap[uid])uMap[uid]={
+                uid,campaign:e.campaign||'(organic / direct)',
+                days:new Set(),eng:0,sfRuns:0,phRuns:0,ltv:0,churned:removedUIDs.has(uid)
+            };
+            const u=uMap[uid];
+            if(e.source_table)u.days.add(e.source_table);
+            if(e.event_name==='user_engagement'&&e.engagement_time_msec)u.eng+=(parseFloat(e.engagement_time_msec)||0);
+            if(e.event_name==='shadow_fall_stage_completed'||e.event_name==='shadow_fall_stage_failed')u.sfRuns++;
+            if(['prism_harmony_level_completed','prism_harmony_level_failed','prism_harmony_level_exit'].includes(e.event_name))u.phRuns++;
+            if(e.event_name==='ad_impression')u.ltv+=(parseFloat(e.value)||0);
+        }
+        const users=Object.values(uMap).map(u=>({...u,days:u.days.size,eng:u.eng/60000}));
+
+        // Aggregate per campaign
+        const camMap={};
+        for(const u of users){
+            const c=u.campaign;
+            if(!camMap[c])camMap[c]={name:c,uList:[]};
+            camMap[c].uList.push(u);
+        }
+
+        // Compute per-campaign metrics + tier distribution
+        const rows=Object.values(camMap).map(cm=>{
+            const ul=cm.uList;const n=ul.length;
+            const churned=ul.filter(u=>u.churned).length;
+            const churnRate=n?churned/n:0;
+            const avgLtv=n?ul.reduce((s,u)=>s+u.ltv,0)/n:0;
+            const avgEng=n?ul.reduce((s,u)=>s+u.eng,0)/n:0;
+            const avgDays=n?ul.reduce((s,u)=>s+u.days,0)/n:0;
+
+            // Tier counts
+            let t0=0,t1=0,t2=0,t3=0;
+            for(const u of ul){
+                const t=plTier(u);
+                if(t===0)t0++;else if(t===1)t1++;else if(t===2)t2++;else t3++;
+            }
+            const champPct=n?t0/n:0;
+            const corePct=n?t1/n:0;
+            const activePct=n?t2/n:0;
+            const obsPct=n?t3/n:0;
+
+            return{name:cm.name,users:n,churnRate,avgLtv,avgEng,avgDays,champPct,corePct,activePct,obsPct,score:0};
+        });
+
+        // Normalise and compute quality score
+        // Weights: LTV 30%, ChurnSurvival 20%, Champion% 20%, Engagement 15%, Retention 15%
+        const maxLtv=Math.max(...rows.map(r=>r.avgLtv))||1;
+        const maxEng=Math.max(...rows.map(r=>r.avgEng))||1;
+        const maxDays=Math.max(...rows.map(r=>r.avgDays))||1;
+        const maxChamp=Math.max(...rows.map(r=>r.champPct))||1;
+        for(const r of rows){
+            const sLtv=(r.avgLtv/maxLtv)*30;
+            const sSurv=((1-r.churnRate))*20;
+            const sChamp=(r.champPct/maxChamp)*20;
+            const sEng=(r.avgEng/maxEng)*15;
+            const sDays=(r.avgDays/maxDays)*15;
+            r.score=Math.round(sLtv+sSurv+sChamp+sEng+sDays);
+        }
+
+        _cqData=rows;
+
+        // KPIs
+        const sorted=rows.slice().sort((a,b)=>b.score-a.score);
+        const best=sorted[0];
+        const worst=sorted[sorted.length-1];
+        const avgScore=rows.length?Math.round(rows.reduce((s,r)=>s+r.score,0)/rows.length):0;
+        const bestLtv=rows.slice().sort((a,b)=>b.avgLtv-a.avgLtv)[0];
+
+        setHTML('cq-kpis',
+            kpi('g','Best Campaign',best?best.score+' pts':'-',best?cqShortName(best.name):'–')+
+            kpi('y','Avg Quality Score',avgScore+' pts',rows.length+' campaigns scored')+
+            kpi('a','Höchster LTV',bestLtv?usd(bestLtv.avgLtv):'-',bestLtv?cqShortName(bestLtv.name):'–')+
+            kpi('r','Weakest Campaign',worst?worst.score+' pts':'-',worst?cqShortName(worst.name):'–')
+        );
+
+        // Insight
+        const topChamp=rows.slice().sort((a,b)=>b.champPct-a.champPct)[0];
+        const lowestChurn=rows.slice().sort((a,b)=>a.churnRate-b.churnRate)[0];
+        setHTML('cq-insight',
+            `<strong>📣 Campaign Quality:</strong> ${rows.length} campaigns · `+
+            `Best score: <strong>${best?cqShortName(best.name):'–'}</strong> (${best?best.score:0} pts) · `+
+            `Most Champions: <strong>${topChamp?cqShortName(topChamp.name):'–'}</strong> (${topChamp?(topChamp.champPct*100).toFixed(0)+'%':'–'}) · `+
+            `Lowest Churn: <strong>${lowestChurn?cqShortName(lowestChurn.name):'–'}</strong> (${lowestChurn?(lowestChurn.churnRate*100).toFixed(0)+'%':'–'})`
+        );
+
+        cqRender();
+    }
+
+    function cqShortName(n){
+        if(!n||n==='(organic / direct)')return'(organic)';
+        return n.length>28?n.slice(0,26)+'…':n;
+    }
+
+    function cqSort(key){
+        if(_cqSortKey===key){_cqSortAsc=!_cqSortAsc;}
+        else{_cqSortKey=key;_cqSortAsc=(key==='name');}
+        document.querySelectorAll('#cq-table th').forEach(th=>{th.classList.remove('sort-asc','sort-desc');});
+        const keyIdx={score:0,name:1,users:2,churn:3,champ:4,ltv:5,eng:6,days:7};
+        const idx=keyIdx[key];
+        if(idx!=null){
+            const ths=document.querySelectorAll('#cq-table thead th');
+            if(ths[idx])ths[idx].classList.add(_cqSortAsc?'sort-asc':'sort-desc');
+        }
+        cqRender();
+    }
+
+    function cqRender(){
+        if(!_cqData.length)return;
+        const key=_cqSortKey;const asc=_cqSortAsc;
+        const sorted=_cqData.slice().sort((a,b)=>{
+            const numKeys={score:1,users:1,churn:1,champ:1,ltv:1,eng:1,days:1};
+            if(numKeys[key]){
+                const d=b[{score:'score',users:'users',churn:'churnRate',champ:'champPct',ltv:'avgLtv',eng:'avgEng',days:'avgDays'}[key]]-a[{score:'score',users:'users',churn:'churnRate',champ:'champPct',ltv:'avgLtv',eng:'avgEng',days:'avgDays'}[key]];
+                return asc?-d:d;
+            }
+            return asc?a.name.localeCompare(b.name):b.name.localeCompare(a.name);
+        });
+
+        setHTML('cq-body', sorted.map(r=>{
+            const sc=r.score;
+            const scCls=sc>=70?'hi':sc>=40?'md':'lo';
+            const scColor=sc>=70?'#22c55e':sc>=40?'#f59e0b':'#ef4444';
+            const barW=sc+'%';
+            const churnCls=r.churnRate>0.4?'tr tred':r.churnRate>0.2?'tr ty':'tr tg';
+            const ltvCls=r.avgLtv>0.2?'tr tg':r.avgLtv>0.05?'tr ty':'tr';
+            const champStr=(r.champPct*100).toFixed(0)+'%';
+            const churnStr=(r.churnRate*100).toFixed(0)+'%';
+            const engStr=r.avgEng>0?r.avgEng.toFixed(1)+' min':'–';
+            const daysStr=r.avgDays>0?r.avgDays.toFixed(1):'–';
+
+            // Tier mini-bar
+            const tw=80;
+            const c0=Math.round(r.champPct*tw);
+            const c1=Math.round(r.corePct*tw);
+            const c2=Math.round(r.activePct*tw);
+            const c3=Math.max(0,tw-c0-c1-c2);
+            const tierMini=`<span class="tier-mini" title="Champion ${(r.champPct*100).toFixed(0)}% · Core ${(r.corePct*100).toFixed(0)}% · Active ${(r.activePct*100).toFixed(0)}% · Observer ${(r.obsPct*100).toFixed(0)}%">
+                <span style="width:${c0}px;background:#f59e0b"></span>
+                <span style="width:${c1}px;background:#6366f1"></span>
+                <span style="width:${c2}px;background:#0d9488"></span>
+                <span style="width:${c3}px;background:#1e293b"></span>
+            </span>`;
+
+            return`<tr>
+                <td style="white-space:nowrap">
+                    <span class="qs-score ${scCls}">${sc}</span>
+                    <span class="qs-bar-track"><span class="qs-bar-fill" style="width:${barW};background:${scColor};"></span></span>
+                </td>
+                <td style="font-size:12px;max-width:220px;word-break:break-word">${r.name==='(organic / direct)'?'<span style="color:var(--muted)">(organic / direct)</span>':r.name}</td>
+                <td class="tc">${r.users}</td>
+                <td class="${churnCls}">${churnStr}</td>
+                <td class="tc" style="color:${r.champPct>0.1?'#f59e0b':'var(--muted)'}">${champStr}</td>
+                <td class="${ltvCls}">${r.avgLtv>0?usd(r.avgLtv):'–'}</td>
+                <td class="tr">${engStr}</td>
+                <td class="tr">${daysStr}</td>
+                <td>${tierMini}</td>
+            </tr>`;
+        }).join(''));
+    }
+
+    // ════════════════════════════════════════════════════════════════════════════
+    // USER PROFILE MODAL
+    // ════════════════════════════════════════════════════════════════════════════
+    function openUserProfile(uid){
+        const evs=ALL.filter(e=>e.user_pseudo_id===uid);
+        if(!evs.length){alert('No data found for this user.');return;}
+        // ── Basic info ────────────────────────────────────────────────────────
+        const country=evs.find(e=>e.country)?.country||'Unknown';
+        const latestVer=evs.filter(e=>e.app_version&&e.source_table).sort((a,b)=>(b.source_table||'').localeCompare(a.source_table||''))[0];
+        const appVer=latestVer?.app_version||'–';
+        const campaign=evs.find(e=>e.campaign)?.campaign||'–';
+        const os=evs.find(e=>e.os)?.os||'–';
+        const dev=evs.find(e=>e.device_category)?.device_category||'–';
+        const lang=evs.find(e=>e.language)?.language||'';
+        // ── Timeline ──────────────────────────────────────────────────────────
+        const dates=[...new Set(evs.map(e=>e.source_table).filter(Boolean))].sort();
+        const firstSeen=dates[0]||'–';
+        const lastSeen=dates[dates.length-1]||'–';
+        const installEvs=evs.filter(e=>e.event_name==='first_open').map(e=>e.source_table).filter(Boolean).sort();
+        const installDate=installEvs[0]||firstSeen;
+        // ── Engagement ────────────────────────────────────────────────────────
+        const engMs=evs.filter(e=>e.event_name==='user_engagement'&&e.engagement_time_msec)
+            .reduce((s,e)=>s+(parseFloat(e.engagement_time_msec)||0),0);
+        const engMin=(engMs/60000);
+        // ── Shadow Fall ───────────────────────────────────────────────────────
+        const sfEvs=evs.filter(e=>e.event_name==='shadow_fall_stage_completed'||e.event_name==='shadow_fall_stage_failed');
+        const sfDone=sfEvs.filter(e=>e.event_name==='shadow_fall_stage_completed').length;
+        const sfRevAds=evs.filter(e=>e.event_name==='shadow_fall_revive_advertisement').length;
+        const sfScores=sfEvs.filter(e=>e.final_score).map(e=>parseFloat(e.final_score)||0);
+        const sfAvgScore=sfScores.length?sfScores.reduce((a,b)=>a+b,0)/sfScores.length:0;
+        // ── Prism Harmony ─────────────────────────────────────────────────────
+        const phEvs=evs.filter(e=>['prism_harmony_level_completed','prism_harmony_level_failed','prism_harmony_level_exit'].includes(e.event_name));
+        const phDone=evs.filter(e=>e.event_name==='prism_harmony_level_completed').length;
+        const phStarsArr=evs.filter(e=>e.star_count).map(e=>parseFloat(e.star_count)||0);
+        const phAvgStars=phStarsArr.length?phStarsArr.reduce((a,b)=>a+b,0)/phStarsArr.length:0;
+        // ── Ads ───────────────────────────────────────────────────────────────
+        const adImps=evs.filter(e=>e.event_name==='ad_impression');
+        const rewarded=adImps.filter(e=>e.ad_format==='rewarded_video').length;
+        const inter=adImps.filter(e=>e.ad_format==='interstitial').length;
+        const ltv=adImps.reduce((s,e)=>s+(parseFloat(e.value)||0),0);
+        const byPlacement={};for(const i of adImps){const p=i.placement||'other';byPlacement[p]=(byPlacement[p]||0)+1;}
+        const topPlacement=Object.entries(byPlacement).sort((a,b)=>b[1]-a[1])[0]?.[0]||'–';
+        // ── Tier / Label ─────────────────────────────────────────────────────
+        const ltvTier=ltv>0.5?'🥇 High Value':ltv>0.1?'🥈 Mid Value':ltv>0?'🥉 Low Value':'⬜ No Revenue';
+        const engLabel=engMin>30?'Power User':engMin>10?'Regular':engMin>2?'Casual':'Minimal';
+        // ── Render helpers ───────────────────────────────────────────────────
+        const row=(k,v,cls='')=>`<div class="upm-row"><span class="lk">${k}</span><span class="vk ${cls}">${v}</span></div>`;
+        const barEl=(lbl,val,max,color)=>`<div class="upm-bar-row">
+            <div class="upm-bar-lbl"><span>${lbl}</span><span>${val}</span></div>
+            <div class="upm-bar-track"><div class="upm-bar-fill" style="width:${max>0?Math.min(100,val/max*100).toFixed(1):0}%;background:${color}"></div></div></div>`;
+        const scoreGrid=(items)=>`<div class="upm-score">${items.map(([v,l,c])=>`<div class="upm-score-item"><div class="sv"${c?' style="color:'+c+'"':''}>${v}</div><div class="sl">${l}</div></div>`).join('')}</div>`;
+        const maxGames=Math.max(sfEvs.length,phEvs.length,1);
+        const dayChips=dates.map(d=>`<span class="upm-day${d===lastSeen?' last':''}">${fday(d)}</span>`).join('');
+        $('upm-uid').textContent=uid;
+        setHTML('upm-body',`
+            <div class="upm-sec">📍 Basic Info</div>
+            ${row('Country / Market',f(country)+' <strong>'+country+'</strong>','c')}
+            ${row('App Version','<strong>'+appVer+'</strong>')}
+            ${row('OS / Gerät',os+(dev&&dev!==os?'&thinsp;·&thinsp;'+dev:'')+(lang?'&thinsp;·&thinsp;'+lang:''))}
+            ${row('Campaign','<span style="font-size:11px">'+(campaign.length>42?campaign.slice(0,40)+'…':campaign)+'</span>')}
+
+            <div class="upm-sec">🗓️ Timeline</div>
+            ${row('Erstmaliger Install',fday(installDate),'c')}
+            ${row('First Seen',fday(firstSeen))}
+            ${row('Last Seen','<strong>'+fday(lastSeen)+'</strong>','g')}
+            ${row('Active Days','<strong>'+dates.length+'</strong> day'+(dates.length!==1?'s':''))}
+            <div class="upm-days">${dayChips}</div>
+
+            <div class="upm-sec">⏱️ Engagement</div>
+            ${row('Total Engagement','<strong>'+engMin.toFixed(1)+'</strong> min',engMin>10?'g':'')}
+            ${row('Engagement Level','<strong>'+engLabel+'</strong>',engMin>10?'g':engMin>2?'y':'')}
+
+            <div class="upm-sec">⚔️ Shadow Fall</div>
+            ${sfEvs.length?`
+            ${barEl('Anteil Runs vs PH',sfEvs.length,maxGames,'#22d3ee')}
+            ${scoreGrid([
+            [sfEvs.length,'Runs',''],
+            [sfEvs.length?Math.round(sfDone/sfEvs.length*100)+'%':'–','Abschluss','var(--green)'],
+            [sfAvgScore>0?r0(sfAvgScore):'–','Avg Score','']
+        ])}
+            ${sfRevAds?row('Revive-Ads genutzt','<strong>'+sfRevAds+'</strong>×','y'):''}
+            `:'<div style="color:var(--muted);font-size:12px;padding:4px 0">No Shadow Fall data</div>'}
+
+            <div class="upm-sec">🎵 Prism Harmony</div>
+            ${phEvs.length?`
+            ${barEl('Anteil Runs vs SF',phEvs.length,maxGames,'#6366f1')}
+            ${scoreGrid([
+            [phEvs.length,'Runs',''],
+            [phEvs.length?Math.round(phDone/phEvs.length*100)+'%':'–','Abschluss','var(--green)'],
+            [phAvgStars>0?phAvgStars.toFixed(1):'–','Avg Stars','var(--yellow)']
+        ])}
+            `:'<div style="color:var(--muted);font-size:12px;padding:4px 0">No Prism Harmony data</div>'}
+
+            <div class="upm-sec">📺 Werbung</div>
+            ${scoreGrid([
+            [rewarded,'Rewarded','#22d3ee'],
+            [inter,'Interstitial','#f59e0b'],
+            [usd(ltv),'LTV (Ads)','var(--green)']
+        ])}
+            ${adImps.length?row('Top Placement',topPlacement):''}
+
+            <div class="upm-sec">💎 Bewertung</div>
+            ${row('LTV-Tier',ltvTier,ltv>0.1?'g':'')}
+            ${row('Engagement Class','<strong>'+engLabel+'</strong>',engMin>10?'g':engMin>2?'y':'')}
+            ${row('Events in Dataset',evs.length+' Events')}
+        `);
+        $('upm-overlay').classList.add('open');
+        document.body.style.overflow='hidden';
+    }
+    function closeUserProfile(ev){
+        if(ev&&ev.target&&ev.target.id!=='upm-overlay')return;
+        $('upm-overlay').classList.remove('open');
+        document.body.style.overflow='';
+    }
+
 </script>
+<!-- ═══ User Profile Modal ═══ -->
+<div id="upm-overlay" onclick="closeUserProfile(event)">
+    <div id="upm-panel" onclick="event.stopPropagation()">
+        <div class="upm-head">
+            <span class="upm-title">👤 User Profile</span>
+            <span class="upm-close" onclick="closeUserProfile()">×</span>
+        </div>
+        <div class="upm-uid" id="upm-uid"></div>
+        <div class="upm-body" id="upm-body"></div>
+    </div>
+</div>
 </body>
 </html>
